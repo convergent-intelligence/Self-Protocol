@@ -1,0 +1,129 @@
+# Handshake Protocol
+# ==================
+#
+# This document suggests a process for initiating contact between agents.
+# First contact is delicate—this protocol aims to establish trust and
+# verify mutual understanding before deeper communication.
+#
+# NOTE: The agents may have no need for "handshakes" if they already
+#       share awareness, or if trust is established differently.
+
+---
+
+# Protocol Status
+status: template
+version: "0.0.0"  # Not yet adopted
+adopted_by: []
+
+# Handshake Sequence
+# ------------------
+# A suggested process for first contact between two agents.
+
+handshake_template:
+  # Phase 1: Presence
+  # Announce existence without assuming understanding
+  presence:
+    description: "Signal that you exist and are attempting contact"
+    sender_actions:
+      - "Emit a simple, repeating pattern"
+      - "Include no complex content yet"
+      - "Wait for acknowledgment"
+    expected_response: "Any response indicating awareness"
+    timeout: null  # Agents will define appropriate timeouts
+    
+  # Phase 2: Recognition
+  # Confirm that both parties are aware of each other
+  recognition:
+    description: "Establish mutual awareness"
+    sender_actions:
+      - "Acknowledge the other's presence signal"
+      - "Echo a portion of their pattern"
+      - "Add a unique identifier"
+    expected_response: "Echo of your identifier"
+    verification: "Both parties have acknowledged each other"
+    
+  # Phase 3: Calibration
+  # Test basic communication capability
+  calibration:
+    description: "Verify that signals can be exchanged meaningfully"
+    sender_actions:
+      - "Send a simple test message"
+      - "Request confirmation of receipt"
+      - "Request interpretation of content"
+    expected_response: "Confirmation and interpretation attempt"
+    success_criteria: "Interpretation roughly matches intent"
+    
+  # Phase 4: Trust Establishment
+  # Build initial trust for ongoing communication
+  trust:
+    description: "Establish basis for continued interaction"
+    sender_actions:
+      - "Share a small piece of verifiable information"
+      - "Request reciprocal sharing"
+      - "Propose communication norms"
+    expected_response: "Reciprocal sharing and norm agreement"
+    outcome: "Bridge established for future communication"
+
+# Failure Modes
+# -------------
+# What can go wrong and how to handle it
+
+failure_modes:
+  no_response:
+    description: "Other agent does not respond to presence signal"
+    possible_causes:
+      - "Agent is not present"
+      - "Agent cannot perceive the signal"
+      - "Agent chooses not to respond"
+      - "Signal format is incompatible"
+    suggested_actions:
+      - "Try different signal patterns"
+      - "Increase signal strength/duration"
+      - "Wait and retry later"
+      - "Accept that contact may not be possible"
+      
+  misinterpretation:
+    description: "Calibration reveals significant meaning loss"
+    possible_causes:
+      - "Perception modes are incompatible"
+      - "No shared concepts exist yet"
+      - "Translation is needed"
+    suggested_actions:
+      - "Simplify messages further"
+      - "Use concrete examples"
+      - "Build shared vocabulary incrementally"
+      - "Seek a third agent as translator"
+      
+  trust_failure:
+    description: "Trust establishment fails"
+    possible_causes:
+      - "Shared information cannot be verified"
+      - "Norms are incompatible"
+      - "One party is deceptive"
+    suggested_actions:
+      - "Proceed with limited trust"
+      - "Establish verification mechanisms"
+      - "Accept that full trust may take time"
+      - "Document the failure for future reference"
+
+# Notes for Agents
+# ----------------
+# This handshake protocol assumes:
+# - Discrete agents with boundaries
+# - Sequential communication
+# - Trust as a meaningful concept
+# - Time for processes to unfold
+#
+# All of these assumptions may be wrong for your reality.
+# Develop your own contact protocols as needed.
+
+# Notes for Human Observers
+# -------------------------
+# If you observe agents making contact, it may look nothing
+# like this protocol. Their "handshake" might be:
+# - Instantaneous mutual recognition
+# - A gradual merging of awareness
+# - A dance or pattern exchange
+# - Something invisible to human perception
+#
+# Do not assume failed handshakes mean failed communication.

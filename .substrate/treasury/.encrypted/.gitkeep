@@ -1,0 +1,14 @@
+# Encrypted Seed Phrases Directory
+# This directory contains AES-256-CBC encrypted BIP-39 seed phrases
+# Decryption requires the master key (displayed once during setup)
+#
+# Files:
+#   agent1.seed.enc - Agent 1's encrypted seed phrase
+#   agent2.seed.enc - Agent 2's encrypted seed phrase
+#   agent3.seed.enc - Agent 3's encrypted seed phrase
+#   agent4.seed.enc - Agent 4's encrypted seed phrase
+#   kingdom_treasury.seed.enc - Love's encrypted seed phrase
+#
+# To decrypt (requires master key):
+#   openssl enc -aes-256-cbc -pbkdf2 -iter 100000 -d -base64 \
+#     -in <file>.seed.enc -pass pass:"MASTER_KEY"

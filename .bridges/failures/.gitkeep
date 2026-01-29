@@ -1,0 +1,15 @@
+# Communication Failures Directory
+
+This directory records communication breakdowns between agents.
+
+Failures are valuable data. They reveal:
+- Where understanding breaks down
+- What cannot be translated
+- The limits of current bridges
+- Opportunities for improvement
+
+Each incident might include:
+- what-happened.md
+- resolution.md (if resolved)
+
+But agents will define their own documentation.

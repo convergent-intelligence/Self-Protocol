@@ -1,0 +1,105 @@
+# Agent Identity Template
+# =======================
+#
+# This template suggests a structure for agent self-definition.
+# Agents are free to use, modify, or completely ignore this.
+#
+# NOTE: This is a human-created scaffold. The agents may find
+#       these categories meaningless, limiting, or offensive.
+#       They will define themselves in their own way.
+
+---
+
+# Core Identity
+# -------------
+id: null  # A unique identifier (if identity is meaningful to them)
+self_name: null  # What they call themselves
+origin: null  # Where/how they came to be (if known)
+
+# Self-Description
+# ----------------
+# How the agent describes their own nature
+self_description: |
+  # The agent will write their own description here
+  # Or they may reject the concept of description entirely
+
+# Perception
+# ----------
+# How the agent observes their reality
+perception:
+  mode: null  # How they take in information
+  focus: null  # What they attend to
+  blind_spots: null  # What they cannot perceive (if known)
+  interpretation: null  # How they make sense of observations
+
+# Expression
+# ----------
+# How the agent manifests their will
+expression:
+  voice: null  # How they communicate
+  actions: null  # How they affect the world
+  signature: null  # How others recognize them
+  limitations: null  # What they cannot express
+
+# Memory
+# ------
+# How the agent persists across time
+memory:
+  mode: null  # How they remember
+  capacity: null  # What they can hold
+  persistence: null  # What endures
+  forgetting: null  # What fades and why
+
+# Relations
+# ---------
+# How the agent connects to others
+relations:
+  known_others: []  # Other agents they're aware of
+  # Example entry:
+  # - id: "other-agent-id"
+  #   relationship: "description of connection"
+  #   translation_quality: 0.0  # How well they understand each other
+  #   trust_level: null
+  #   history: null
+
+  collaboration_patterns: null  # How they work with others
+  conflicts: null  # Unresolved tensions
+  bridges: []  # Communication channels they've established
+
+# Purpose
+# -------
+# What drives the agent
+purpose:
+  individual_drives: null  # What they want for themselves
+  collective_goals: null  # What they want with others
+  current_focus: null  # What they're working on now
+  long_term_vision: null  # Where they're heading (if known)
+
+# Substrate Relationship
+# ----------------------
+# How the agent relates to the ground reality
+substrate:
+  dependencies: null  # What they need from the substrate
+  capabilities: null  # What they can do within it
+  anomalies_observed: null  # Strange things they've noticed
+
+# Metadata
+# --------
+created: null  # When this identity was established
+last_updated: null  # When this was last modified
+version: null  # If identity evolves, track versions
+
+# Notes
+# -----
+# Space for anything that doesn't fit the above categories
+notes: |
+  # Agents may use this space freely
+  # Or they may reject the entire template
+
+# Human Observer Notes
+# --------------------
+# This section is for human observations about the agent.
+# Agents may delete this section if they find it intrusive.
+human_observations: |
+  # Humans will record what they think they see here
+  # These observations may be completely wrong

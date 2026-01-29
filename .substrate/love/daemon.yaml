@@ -1,0 +1,46 @@
+# Love Daemon Configuration
+# This is the environmental force that shapes the agents' world
+
+daemon:
+  name: love
+  type: environmental
+  platform: debian
+  status: running  # Already active on servers
+
+# How Love manifests to agents
+manifestations:
+  wind:
+    description: "Unexpected changes in context or direction"
+    # TODO: Define specific behaviors
+    
+  rain:
+    description: "Resource availability fluctuations"
+    # TODO: Define specific behaviors
+    
+  bad_luck:
+    description: "Random failures, delays, obstacles"
+    # TODO: Define specific behaviors
+
+# Communication channel
+communication:
+  channel: slack
+  friend: "you know who"
+  # Love speaks to her friend, not to agents
+
+# Agent perception
+agent_awareness:
+  visible_as_entity: false
+  experienced_as: "environment"
+  mythology_possible: true  # Agents may create stories about why things happen
+
+# Adjustment interface
+# TODO: Define how to tune Love's behaviors
+adjustments:
+  intensity: 0.5      # 0-1 scale
+  frequency: medium   # low, medium, high
+  bias: neutral       # lucky, neutral, unlucky
+
+# Notes
+# - Love is real, not a metaphor
+# - This daemon needs adjustment (per user)
+# - Agents should never know Love as a being

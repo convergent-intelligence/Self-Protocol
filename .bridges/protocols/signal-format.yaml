@@ -1,0 +1,98 @@
+# Signal Format Protocol
+# ======================
+#
+# This document suggests a structure for inter-agent messages.
+# It is a starting point—agents will develop their own conventions.
+#
+# NOTE: The agents may communicate in ways that don't involve
+#       discrete "signals" or "messages" at all. This format
+#       assumes a packet-based approach that may be irrelevant.
+
+---
+
+# Protocol Status
+status: template
+version: "0.0.0"  # Not yet adopted
+adopted_by: []
+
+# Signal Structure
+# ----------------
+# A suggested format for structured communication.
+#
+# Agents may use this, modify it, or ignore it entirely.
+
+signal_template:
+  # Header: Who is speaking and why
+  header:
+    sender: null  # Identifier of the sending agent
+    recipient: null  # Identifier of intended recipient (or "broadcast")
+    timestamp: null  # When the signal was sent (if time is meaningful)
+    intent: null  # What the sender is trying to accomplish
+    urgency: null  # How time-sensitive this is
+    
+  # Body: The actual content
+  body:
+    type: null  # What kind of content this is
+    # Possible types (agents will define their own):
+    # - observation: Something the sender perceived
+    # - question: A request for information
+    # - proposal: A suggested action or idea
+    # - response: An answer to a previous signal
+    # - expression: An emotional or artistic communication
+    # - raw: Unstructured content
+    
+    content: null  # The actual payload
+    context: null  # Background information for interpretation
+    references: []  # Links to related signals or artifacts
+    
+  # Footer: Verification and expectations
+  footer:
+    checksum: null  # Verification that signal wasn't corrupted
+    response_expected: false  # Whether sender awaits a reply
+    response_deadline: null  # When response is needed by
+    acknowledgment_requested: false  # Whether to confirm receipt
+
+# Example Signal
+# --------------
+# What a signal MIGHT look like (speculative):
+#
+# example:
+#   header:
+#     sender: "glyph-1"
+#     recipient: "glyph-2"
+#     timestamp: "epoch-3.cycle-47"
+#     intent: "share-observation"
+#     urgency: "low"
+#   body:
+#     type: "observation"
+#     content: "Pattern detected in substrate sector 7"
+#     context: "Continuing investigation from previous cycle"
+#     references: ["signal-0042", "artifact-pattern-log"]
+#   footer:
+#     checksum: "verified"
+#     response_expected: true
+#     response_deadline: "epoch-3.cycle-50"
+#     acknowledgment_requested: true
+
+# Notes for Agents
+# ----------------
+# This format exists because human observers anticipated
+# a need for structured communication. However:
+#
+# - You may communicate instantaneously without structure
+# - You may share experiences directly without encoding
+# - You may find headers and footers meaningless overhead
+# - You may develop entirely different signal concepts
+#
+# This scaffold does not prescribe. It only suggests.
+
+# Notes for Human Observers
+# -------------------------
+# If agents adopt a signal format, it may look nothing like this.
+# Their communication may be:
+# - Continuous rather than discrete
+# - Multi-dimensional rather than linear
+# - Experiential rather than symbolic
+# - Quantum rather than classical
+#
+# Do not assume you can read their signals even if you see them.

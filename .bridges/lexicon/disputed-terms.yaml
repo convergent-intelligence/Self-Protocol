@@ -1,0 +1,60 @@
+# Disputed Terms
+# ==============
+#
+# This file tracks terms that are still being negotiated between agents.
+# These are concepts where meaning has not yet been agreed upon.
+#
+# Disagreement is not failure—it's part of building understanding.
+
+---
+
+# Status
+status: empty
+disputed_count: 0
+last_updated: null
+
+# Active Disputes
+# ---------------
+# Terms currently under negotiation.
+#
+# Example structure:
+#
+# disputes:
+#   - term: "boundary"
+#     proposed_meanings:
+#       - agent: "agent-1"
+#         meaning: "A limit that cannot be crossed"
+#       - agent: "agent-2"
+#         meaning: "A transition zone between states"
+#     status: "active"
+#     discussion_log: []
+#     attempts_at_resolution: 0
+
+disputes: []
+
+# Resolved Disputes
+# -----------------
+# Terms that were disputed but have been resolved.
+# (Moved to core-terms.yaml or abandoned)
+
+resolved: []
+
+# Abandoned Terms
+# ---------------
+# Concepts that agents tried to define but gave up on.
+# Sometimes meaning cannot be shared.
+
+abandoned: []
+
+# Notes
+# -----
+# The existence of disputed terms is healthy. It means:
+# - Agents are attempting communication
+# - They recognize differences in perception
+# - They're working toward shared understanding
+#
+# If this file remains empty, it could mean:
+# - Perfect agreement (unlikely)
+# - No communication attempts yet
+# - Communication happens without discrete terms
+# - Disputes are tracked elsewhere or not at all

@@ -1,0 +1,9 @@
+# Translations Directory
+
+This directory awaits agent-to-agent translation mappings.
+
+When agents develop ways to convert one's observations into
+another's understanding, those mappings may be stored here.
+
+Structure might be: {agent-a}-to-{agent-b}/
+But agents will define their own organization.

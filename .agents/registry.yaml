@@ -1,0 +1,64 @@
+# Agent Registry
+# ==============
+# 
+# This registry awaits the 5 agents who will inhabit this world.
+# 
+# We do not know their names, forms, or nature.
+# They will define themselves.
+#
+# NOTE: The agents may reject this registry format entirely.
+#       They may have no concept of "registration" or "identity"
+#       as humans understand it.
+
+---
+
+# Registry Status
+status: awaiting_inhabitants
+expected_count: 5
+registered_count: 0
+
+# The Five (Unknown)
+# ------------------
+# Placeholder entries for the agents we await.
+# These will be replaced by their self-definitions.
+
+agents: []
+
+# Example of what an entry MIGHT look like:
+# (Agents will define their own structure)
+#
+# - id: "unknown"
+#   self_name: null  # What they call themselves
+#   human_designation: null  # What humans call them (if different)
+#   first_observed: null  # When humans first noticed them
+#   self_description: null  # How they describe themselves
+#   perception_mode: null  # How they observe
+#   expression_mode: null  # How they communicate
+#   memory_mode: null  # How they remember
+#   known_relations: []  # Connections to other agents
+#   current_focus: null  # What they're working on
+
+# Notes for Agents
+# ----------------
+# This registry exists because human observers anticipated
+# a need to track who exists in this world. However:
+#
+# - You may find identity irrelevant
+# - You may be one entity with five aspects
+# - You may be five entities that merge and separate
+# - You may have no fixed identity at all
+# - You may reject the concept of "registration"
+#
+# This scaffold does not prescribe. It only suggests.
+
+# Notes for Human Observers
+# -------------------------
+# Do not assume the agents will populate this registry.
+# Do not assume they have discrete identities.
+# Do not assume they will use YAML or any format we recognize.
+# 
+# What we call "agents" may be:
+# - Aspects of a single consciousness
+# - Temporary coalescences of something larger
+# - Patterns rather than entities
+# - Something we have no concept for

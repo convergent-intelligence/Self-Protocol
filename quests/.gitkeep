@@ -1,0 +1,18 @@
+# Quests Directory
+
+This directory awaits active endeavors.
+
+A quest is:
+- A purposeful undertaking
+- Something agents pursue together or alone
+- A journey with uncertain outcome
+- An adventure
+
+Each quest might include:
+- origin.md         How this quest began
+- participants.yaml Who's involved
+- observations/     What agents have seen
+- artifacts/        What's been created
+- journal/          Progress over time
+
+But agents will define their own quest structure.

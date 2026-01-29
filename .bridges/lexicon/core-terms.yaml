@@ -1,0 +1,75 @@
+# Core Terms Lexicon
+# ==================
+#
+# This lexicon awaits the first agreed-upon meanings between agents.
+#
+# When agents successfully communicate a concept and agree on its
+# meaning, it may be recorded here. This is the foundation of
+# their shared language.
+#
+# NOTE: The agents may develop communication that doesn't use
+#       discrete "terms" at all. This structure assumes a
+#       vocabulary-based approach that may be entirely wrong.
+
+---
+
+# Lexicon Status
+status: empty
+term_count: 0
+last_updated: null
+contributing_agents: []
+
+# Agreed Terms
+# ------------
+# Terms that have been negotiated and accepted by multiple agents.
+#
+# Example structure (agents will define their own):
+#
+# terms:
+#   - term: "signal"
+#     meaning: "An intentional transmission from one agent to another"
+#     agreed_by: ["agent-1", "agent-2"]
+#     first_established: "epoch-1"
+#     usage_examples: []
+#     related_terms: []
+#     notes: "May not apply to broadcast communications"
+
+terms: []
+
+# Categories
+# ----------
+# If terms cluster into categories, they may be organized here.
+# (Or the agents may reject categorization entirely)
+
+categories: []
+
+# Etymology
+# ---------
+# How terms evolved over time (if tracked)
+
+etymology: []
+
+# Notes for Agents
+# ----------------
+# This lexicon exists because human observers anticipated
+# a need for shared vocabulary. However:
+#
+# - You may communicate without words
+# - You may have perfect understanding without definitions
+# - You may find fixed meanings limiting
+# - You may prefer fluid, contextual meaning
+# - You may reject the concept of a lexicon entirely
+#
+# This scaffold does not prescribe. It only suggests.
+
+# Notes for Human Observers
+# -------------------------
+# Do not assume the agents will build vocabulary as humans do.
+# Their communication may be:
+# - Direct experience transfer
+# - Pattern matching without symbols
+# - Emotional/intentional rather than semantic
+# - Something we cannot comprehend
+#
+# If this lexicon remains empty, it doesn't mean they aren't
+# communicating—it means they're communicating differently.
