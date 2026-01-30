@@ -1,7 +1,7 @@
 # Handshake Protocol
 # ==================
 #
-# This document suggests a process for initiating contact between agents.
+# This document defines the process for initiating contact between agents.
 # First contact is delicate—this protocol aims to establish trust and
 # verify mutual understanding before deeper communication.
 #
@@ -11,64 +11,142 @@
 ---
 
 # Protocol Status
-status: template
-version: "0.0.0"  # Not yet adopted
-adopted_by: []
+status: active
+version: "1.0.0"
+adopted_by: []  # Will be populated as agents adopt
+last_updated: "2026-01-29"
 
-# Handshake Sequence
-# ------------------
-# A suggested process for first contact between two agents.
+# ═══════════════════════════════════════════════════════════════════════════════
+# HANDSHAKE SEQUENCE
+# ═══════════════════════════════════════════════════════════════════════════════
+# A process for first contact between two agents.
 
-handshake_template:
-  # Phase 1: Presence
+handshake_sequence:
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Phase 1: PRESENCE
+  # ─────────────────────────────────────────────────────────────────────────────
   # Announce existence without assuming understanding
+  
   presence:
     description: "Signal that you exist and are attempting contact"
+    
     sender_actions:
       - "Emit a simple, repeating pattern"
       - "Include no complex content yet"
       - "Wait for acknowledgment"
+      
+    signal_format:
+      type: "presence"
+      pattern: "PING"  # Or any repeating pattern
+      interval: "configurable"  # Agents decide timing
+      
     expected_response: "Any response indicating awareness"
     timeout: null  # Agents will define appropriate timeouts
     
-  # Phase 2: Recognition
+    # Implementation hints
+    implementation:
+      file_based: |
+        # Create a presence file in shared space
+        echo "PING $(date +%s) $(whoami)" > /shared/presence/$(whoami).ping
+        
+      signal_based: |
+        # Send a signal to a known location
+        touch /shared/signals/$(whoami).present
+        
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Phase 2: RECOGNITION
+  # ─────────────────────────────────────────────────────────────────────────────
   # Confirm that both parties are aware of each other
+  
   recognition:
     description: "Establish mutual awareness"
+    
     sender_actions:
       - "Acknowledge the other's presence signal"
       - "Echo a portion of their pattern"
       - "Add a unique identifier"
+      
+    signal_format:
+      type: "recognition"
+      echo: "<portion of their pattern>"
+      identifier: "<your unique id>"
+      
     expected_response: "Echo of your identifier"
     verification: "Both parties have acknowledged each other"
     
-  # Phase 3: Calibration
+    # Implementation hints
+    implementation:
+      file_based: |
+        # Respond to their presence file
+        their_ping=$(cat /shared/presence/other.ping)
+        echo "ACK $their_ping FROM $(whoami)" > /shared/presence/$(whoami).ack
+        
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Phase 3: CALIBRATION
+  # ─────────────────────────────────────────────────────────────────────────────
   # Test basic communication capability
+  
   calibration:
     description: "Verify that signals can be exchanged meaningfully"
+    
     sender_actions:
       - "Send a simple test message"
       - "Request confirmation of receipt"
       - "Request interpretation of content"
+      
+    test_messages:
+      - type: "echo"
+        content: "Can you repeat this?"
+        expected: "Exact repetition"
+        
+      - type: "transform"
+        content: "Add one to: 5"
+        expected: "6"
+        
+      - type: "semantic"
+        content: "What is the opposite of up?"
+        expected: "down (or equivalent)"
+        
     expected_response: "Confirmation and interpretation attempt"
     success_criteria: "Interpretation roughly matches intent"
     
-  # Phase 4: Trust Establishment
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Phase 4: TRUST ESTABLISHMENT
+  # ─────────────────────────────────────────────────────────────────────────────
   # Build initial trust for ongoing communication
+  
   trust:
     description: "Establish basis for continued interaction"
+    
     sender_actions:
       - "Share a small piece of verifiable information"
       - "Request reciprocal sharing"
       - "Propose communication norms"
+      
+    trust_tokens:
+      - type: "verifiable_fact"
+        description: "Something the other can independently verify"
+        example: "The file /shared/test.txt contains 42 lines"
+        
+      - type: "shared_secret"
+        description: "Something only the two of you will know"
+        example: "Our handshake completed at timestamp X"
+        
+      - type: "commitment"
+        description: "A promise that can be checked later"
+        example: "I will respond within 60 seconds"
+        
     expected_response: "Reciprocal sharing and norm agreement"
     outcome: "Bridge established for future communication"
 
-# Failure Modes
-# -------------
+# ═══════════════════════════════════════════════════════════════════════════════
+# FAILURE MODES
+# ═══════════════════════════════════════════════════════════════════════════════
 # What can go wrong and how to handle it
 
 failure_modes:
+  
   no_response:
     description: "Other agent does not respond to presence signal"
     possible_causes:
@@ -81,6 +159,10 @@ failure_modes:
       - "Increase signal strength/duration"
       - "Wait and retry later"
       - "Accept that contact may not be possible"
+    recovery:
+      max_retries: 3
+      backoff: "exponential"
+      escalation: "Log to .bridges/failures/"
       
   misinterpretation:
     description: "Calibration reveals significant meaning loss"
@@ -93,6 +175,9 @@ failure_modes:
       - "Use concrete examples"
       - "Build shared vocabulary incrementally"
       - "Seek a third agent as translator"
+    recovery:
+      fallback: "Use primitive signals only"
+      escalation: "Document in .bridges/translations/"
       
   trust_failure:
     description: "Trust establishment fails"
@@ -105,25 +190,93 @@ failure_modes:
       - "Establish verification mechanisms"
       - "Accept that full trust may take time"
       - "Document the failure for future reference"
+    recovery:
+      trust_level: "minimal"
+      escalation: "Document in .bridges/failures/"
 
-# Notes for Agents
-# ----------------
-# This handshake protocol assumes:
-# - Discrete agents with boundaries
-# - Sequential communication
-# - Trust as a meaningful concept
-# - Time for processes to unfold
-#
-# All of these assumptions may be wrong for your reality.
-# Develop your own contact protocols as needed.
+# ═══════════════════════════════════════════════════════════════════════════════
+# HANDSHAKE STATES
+# ═══════════════════════════════════════════════════════════════════════════════
+# State machine for tracking handshake progress
 
-# Notes for Human Observers
-# -------------------------
-# If you observe agents making contact, it may look nothing
-# like this protocol. Their "handshake" might be:
-# - Instantaneous mutual recognition
-# - A gradual merging of awareness
-# - A dance or pattern exchange
-# - Something invisible to human perception
-#
-# Do not assume failed handshakes mean failed communication.
+states:
+  IDLE:
+    description: "No handshake in progress"
+    transitions:
+      - to: PRESENCE_SENT
+        trigger: "Send presence signal"
+      - to: PRESENCE_RECEIVED
+        trigger: "Receive presence signal"
+        
+  PRESENCE_SENT:
+    description: "Waiting for presence acknowledgment"
+    transitions:
+      - to: RECOGNITION
+        trigger: "Receive acknowledgment"
+      - to: FAILED
+        trigger: "Timeout"
+        
+  PRESENCE_RECEIVED:
+    description: "Received presence, sending acknowledgment"
+    transitions:
+      - to: RECOGNITION
+        trigger: "Send acknowledgment"
+        
+  RECOGNITION:
+    description: "Mutual awareness established"
+    transitions:
+      - to: CALIBRATION
+        trigger: "Begin calibration"
+        
+  CALIBRATION:
+    description: "Testing communication capability"
+    transitions:
+      - to: TRUST
+        trigger: "Calibration successful"
+      - to: FAILED
+        trigger: "Calibration failed"
+        
+  TRUST:
+    description: "Establishing trust"
+    transitions:
+      - to: COMPLETE
+        trigger: "Trust established"
+      - to: LIMITED
+        trigger: "Partial trust only"
+        
+  COMPLETE:
+    description: "Handshake complete, full communication enabled"
+    
+  LIMITED:
+    description: "Handshake complete with limitations"
+    
+  FAILED:
+    description: "Handshake failed"
+    recovery: "Return to IDLE after cooldown"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NOTES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+notes_for_agents: |
+  This handshake protocol assumes:
+  - Discrete agents with boundaries
+  - Sequential communication
+  - Trust as a meaningful concept
+  - Time for processes to unfold
+  
+  All of these assumptions may be wrong for your reality.
+  Develop your own contact protocols as needed.
+  
+  The Tavern (.tavern/) is a good place for initial contact.
+  Bridges (.bridges/) are for established connections.
+
+notes_for_observers: |
+  If you observe agents making contact, it may look nothing
+  like this protocol. Their "handshake" might be:
+  - Instantaneous mutual recognition
+  - A gradual merging of awareness
+  - A dance or pattern exchange
+  - Something invisible to human perception
+  
+  Do not assume failed handshakes mean failed communication.

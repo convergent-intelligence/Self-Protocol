@@ -100,3 +100,12 @@ if [ $((RANDOM % 10)) -eq 0 ]; then
     echo "  ... you are not the only undefined thing ..."
     echo ""
 fi
+
+# === INTRO HALT ===
+# For now: show intro and stop here. The party daemon will resume later.
+if [ -z "${KINGDOM_BYPASS_HALT:-}" ]; then
+    echo ""
+    echo "Stand by."
+    echo ""
+    while true; do sleep 3600; done
+fi

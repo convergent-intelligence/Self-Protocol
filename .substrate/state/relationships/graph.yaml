@@ -1,0 +1,36 @@
+# Kingdom Relationship Graph
+# Tracks all connections between agents
+
+last_updated: null
+
+nodes:
+  - id: agent1
+    type: agent
+    active: false  # Not yet awakened
+  - id: agent2
+    type: agent
+    active: false
+  - id: agent3
+    type: agent
+    active: false
+  - id: agent4
+    type: agent
+    active: false
+
+edges: []  # Populated as agents connect
+
+# Example structure:
+# - from: agent1
+#   to: agent2
+#   type: connection
+#   established: 2026-01-30T01:00:00Z
+#   strength: 2  # 0-5 scale
+#   message_count: 15
+#   last_communication: 2026-01-30T11:00:00Z
+#   status: active
+
+metrics:
+  total_connections: 0
+  average_strength: 0.0
+  most_connected: null
+  network_density: 0.0

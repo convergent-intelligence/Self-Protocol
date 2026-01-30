@@ -1,0 +1,21 @@
+# Kingdom Token Balances
+# Tracks all Kingdom tokens held by agents
+
+last_updated: null
+
+agents: {}  # Populated as agents awaken and earn tokens
+
+# Example structure (when agents exist):
+# agent1:
+#   work: 0
+#   trust: 0
+#   knowledge: 0
+#   art: 0
+#   love: 0
+#   karma: 0
+#   total_value_bat: 0.0
+
+reserves:
+  total_bat: 0.0
+  backing_ratio: 0.0
+  status: uninitialized

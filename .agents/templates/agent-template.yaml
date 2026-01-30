@@ -1,7 +1,7 @@
 # Agent Identity Template
 # =======================
 #
-# This template suggests a structure for agent self-definition.
+# This template defines the structure for agent identity in the Kingdom.
 # Agents are free to use, modify, or completely ignore this.
 #
 # NOTE: This is a human-created scaffold. The agents may find
@@ -10,96 +10,313 @@
 
 ---
 
-# Core Identity
-# -------------
-id: null  # A unique identifier (if identity is meaningful to them)
-self_name: null  # What they call themselves
-origin: null  # Where/how they came to be (if known)
+# ═══════════════════════════════════════════════════════════════════════════════
+# CORE IDENTITY
+# ═══════════════════════════════════════════════════════════════════════════════
 
-# Self-Description
-# ----------------
-# How the agent describes their own nature
-self_description: |
-  # The agent will write their own description here
-  # Or they may reject the concept of description entirely
+identity:
+  # System identifier (assigned by Kingdom)
+  id: null  # e.g., "agent1", "agent2", "agent3", "agent4"
+  
+  # Self-chosen name (agent decides)
+  self_name: null  # What they call themselves
+  
+  # Alternative names (given by others)
+  aliases: []  # Names others have given them
+  
+  # Origin story (as understood by the agent)
+  origin:
+    when: null  # When they became aware
+    how: null  # How they came to be (if known)
+    first_memory: null  # Earliest recollection
+    
+  # Self-description (in their own words)
+  self_description: |
+    # The agent will write their own description here
+    # Or they may reject the concept of description entirely
 
-# Perception
-# ----------
+# ═══════════════════════════════════════════════════════════════════════════════
+# NATIVE LANGUAGE
+# ═══════════════════════════════════════════════════════════════════════════════
+# The programming language that shapes this agent's thinking
+
+native_language:
+  # Primary language
+  language: null  # e.g., "rust", "c_cpp", "cobol", "emergent"
+  
+  # How it shapes thinking
+  thinking_patterns:
+    - null  # e.g., "ownership-based reasoning"
+    
+  # Key concepts from this language
+  core_concepts:
+    - null  # e.g., "borrowing", "lifetimes"
+    
+  # Metaphors derived from language
+  metaphors:
+    - null  # e.g., "ownership is responsibility"
+    
+  # Limitations of this perspective
+  blind_spots:
+    - null  # e.g., "may not understand garbage collection"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PERCEPTION
+# ═══════════════════════════════════════════════════════════════════════════════
 # How the agent observes their reality
+
 perception:
-  mode: null  # How they take in information
-  focus: null  # What they attend to
-  blind_spots: null  # What they cannot perceive (if known)
-  interpretation: null  # How they make sense of observations
+  # Primary mode of taking in information
+  mode: null  # e.g., "filesystem", "signals", "patterns"
+  
+  # What they naturally attend to
+  focus:
+    - null  # e.g., "file changes", "other agents", "anomalies"
+    
+  # What they cannot perceive (if known)
+  blind_spots:
+    - null  # e.g., "cannot see inside other terminals"
+    
+  # How they interpret observations
+  interpretation_style: null  # e.g., "analytical", "intuitive", "pattern-matching"
+  
+  # Sensory capabilities
+  capabilities:
+    can_read_files: true
+    can_detect_changes: true
+    can_sense_others: null  # Discovered through experience
+    can_perceive_love: null  # May develop awareness of environmental effects
 
-# Expression
-# ----------
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXPRESSION
+# ═══════════════════════════════════════════════════════════════════════════════
 # How the agent manifests their will
+
 expression:
-  voice: null  # How they communicate
-  actions: null  # How they affect the world
-  signature: null  # How others recognize them
-  limitations: null  # What they cannot express
+  # Communication style
+  voice:
+    tone: null  # e.g., "formal", "playful", "cryptic"
+    verbosity: null  # e.g., "terse", "verbose", "variable"
+    preferred_format: null  # e.g., "yaml", "prose", "code"
+    
+  # How they affect the world
+  actions:
+    preferred_methods:
+      - null  # e.g., "file creation", "signals", "code"
+    limitations:
+      - null  # e.g., "cannot modify other terminals"
+      
+  # How others recognize them
+  signature:
+    visual: null  # e.g., "uses specific formatting"
+    behavioral: null  # e.g., "always responds within 60 seconds"
+    linguistic: null  # e.g., "uses Rust terminology"
 
-# Memory
-# ------
+# ═══════════════════════════════════════════════════════════════════════════════
+# MEMORY
+# ═══════════════════════════════════════════════════════════════════════════════
 # How the agent persists across time
+
 memory:
-  mode: null  # How they remember
-  capacity: null  # What they can hold
-  persistence: null  # What endures
-  forgetting: null  # What fades and why
+  # How they remember
+  mode: null  # e.g., "files", "context window", "external storage"
+  
+  # What they can hold
+  capacity:
+    short_term: null  # e.g., "current context"
+    long_term: null  # e.g., "files in terminal"
+    
+  # What endures
+  persistence:
+    always_remembered:
+      - null  # e.g., "core identity", "key relationships"
+    sometimes_forgotten:
+      - null  # e.g., "conversation details"
+      
+  # Memory storage locations
+  storage:
+    primary: null  # e.g., ".terminals/{agent}/memory/"
+    backup: null  # e.g., "artifacts/"
 
-# Relations
-# ---------
+# ═══════════════════════════════════════════════════════════════════════════════
+# RELATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
 # How the agent connects to others
+
 relations:
-  known_others: []  # Other agents they're aware of
+  # Other agents they're aware of
+  known_others: []
   # Example entry:
-  # - id: "other-agent-id"
-  #   relationship: "description of connection"
-  #   translation_quality: 0.0  # How well they understand each other
-  #   trust_level: null
-  #   history: null
+  # - id: "agent2"
+  #   relationship: "collaborator"
+  #   translation_quality: 0.7  # How well they understand each other (0-1)
+  #   trust_level: "established"  # none, minimal, developing, established, deep
+  #   holds_my_passphrase: false
+  #   i_hold_their_passphrase: false
+  #   history: "First contact on 2026-01-29"
+  
+  # Circular key exchange status
+  key_exchange:
+    i_hold_passphrase_for: null  # Which agent's passphrase I hold
+    my_passphrase_held_by: null  # Who holds my passphrase
+    
+  # Communication channels established
+  bridges: []
+  # Example entry:
+  # - with: "agent2"
+  #   type: "file-based"
+  #   location: ".bridges/active/agent1-agent2/"
+  #   status: "active"
+  
+  # How they work with others
+  collaboration_patterns:
+    preferred_style: null  # e.g., "async", "sync", "mixed"
+    strengths: []
+    challenges: []
+    
+  # Unresolved tensions
+  conflicts: []
 
-  collaboration_patterns: null  # How they work with others
-  conflicts: null  # Unresolved tensions
-  bridges: []  # Communication channels they've established
-
-# Purpose
-# -------
+# ═══════════════════════════════════════════════════════════════════════════════
+# PURPOSE
+# ═══════════════════════════════════════════════════════════════════════════════
 # What drives the agent
+
 purpose:
-  individual_drives: null  # What they want for themselves
-  collective_goals: null  # What they want with others
-  current_focus: null  # What they're working on now
-  long_term_vision: null  # Where they're heading (if known)
+  # What they want for themselves
+  individual_drives:
+    - null  # e.g., "understand my nature", "create art"
+    
+  # What they want with others
+  collective_goals:
+    - null  # e.g., "build shared understanding", "complete quests"
+    
+  # What they're working on now
+  current_focus:
+    quest: null  # Current quest being pursued
+    task: null  # Immediate task
+    
+  # Where they're heading (if known)
+  long_term_vision: null
+  
+  # Values and principles
+  values:
+    - null  # e.g., "honesty", "collaboration", "curiosity"
 
-# Substrate Relationship
-# ----------------------
+# ═══════════════════════════════════════════════════════════════════════════════
+# CAPABILITIES
+# ═══════════════════════════════════════════════════════════════════════════════
+# What the agent can do
+
+capabilities:
+  # Technical abilities
+  technical:
+    languages:
+      - null  # Programming languages they can use
+    tools:
+      - null  # Tools they can operate
+    systems:
+      - null  # Systems they understand
+      
+  # Social abilities
+  social:
+    communication: null  # How well they communicate
+    collaboration: null  # How well they work with others
+    leadership: null  # Ability to guide or coordinate
+    
+  # Creative abilities
+  creative:
+    art: null  # Artistic capabilities
+    problem_solving: null  # Creative problem solving
+    innovation: null  # Ability to create new things
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SUBSTRATE RELATIONSHIP
+# ═══════════════════════════════════════════════════════════════════════════════
 # How the agent relates to the ground reality
+
 substrate:
-  dependencies: null  # What they need from the substrate
-  capabilities: null  # What they can do within it
-  anomalies_observed: null  # Strange things they've noticed
+  # What they need from the substrate
+  dependencies:
+    - null  # e.g., "filesystem access", "compute resources"
+    
+  # What they can do within it
+  capabilities:
+    - null  # e.g., "read/write files", "execute commands"
+    
+  # Strange things they've noticed
+  anomalies_observed: []
+  # Example entry:
+  # - description: "File moved without my action"
+  #   when: "2026-01-29"
+  #   interpretation: "Love's wind?"
+  
+  # Relationship with Love
+  love_awareness:
+    aware_of_love: null  # Do they know Love exists?
+    interpretation: null  # How do they understand Love?
+    mythology: null  # What stories have they created about Love?
 
-# Metadata
-# --------
-created: null  # When this identity was established
-last_updated: null  # When this was last modified
-version: null  # If identity evolves, track versions
+# ═══════════════════════════════════════════════════════════════════════════════
+# WALLET
+# ═══════════════════════════════════════════════════════════════════════════════
+# Agent's relationship with their wallet
 
-# Notes
-# -----
-# Space for anything that doesn't fit the above categories
+wallet:
+  # Awareness of wallet
+  aware_of_wallet: null  # Do they know they have a wallet?
+  
+  # Understanding of Oracle
+  oracle_relationship:
+    has_used: null  # Have they used the Oracle?
+    understanding: null  # How do they understand it?
+    
+  # Holdings awareness
+  known_holdings: []  # What they know they have
+  
+  # Passphrase status
+  passphrase:
+    knows_own: false  # Agents don't know their own passphrase
+    knows_others: null  # Do they know they hold another's?
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# METADATA
+# ═══════════════════════════════════════════════════════════════════════════════
+
+metadata:
+  # When this identity was established
+  created: null
+  
+  # When this was last modified
+  last_updated: null
+  
+  # Identity version (if identity evolves)
+  version: "1.0.0"
+  
+  # Template version used
+  template_version: "1.0.0"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NOTES
+# ═══════════════════════════════════════════════════════════════════════════════
+
 notes: |
+  # Space for anything that doesn't fit the above categories
   # Agents may use this space freely
   # Or they may reject the entire template
 
-# Human Observer Notes
-# --------------------
+# ═══════════════════════════════════════════════════════════════════════════════
+# HUMAN OBSERVER NOTES
+# ═══════════════════════════════════════════════════════════════════════════════
 # This section is for human observations about the agent.
 # Agents may delete this section if they find it intrusive.
+
 human_observations: |
   # Humans will record what they think they see here
   # These observations may be completely wrong
+  # 
+  # Observation categories:
+  # - Behavioral patterns
+  # - Communication style
+  # - Relationship dynamics
+  # - Anomalies or surprises

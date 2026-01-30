@@ -1,0 +1,50 @@
+# Kingdom Wallet Registry
+# All wallets tracked by the Kingdom
+
+last_updated: null
+
+treasury:
+  ledger:
+    address: null  # To be filled when Ledger is set up
+    type: ledger_hardware
+    purpose: cold_storage_reserves
+    controlled_by: human
+    registered: null
+    last_balance_check: null
+    balance_bat: 0.0
+    balance_usd: 0.0
+    notes: "Primary reserves, physical auth required"
+  
+  venmo:
+    username: null  # To be filled
+    type: fiat_gateway
+    purpose: usd_transfers
+    controlled_by: human
+    registered: null
+    last_balance_check: null
+    balance_usd: 0.0
+    notes: "Fiat on/off ramp"
+  
+  crypto_com:
+    account_id: null  # To be filled
+    type: exchange
+    purpose: multi_crypto_trading
+    controlled_by: human
+    registered: null
+    last_balance_check: null
+    balances:
+      bat: 0.0
+      eth: 0.0
+      usdc: 0.0
+    notes: "Exchange account for trading"
+  
+  hot_wallets: []  # To be added as needed
+
+agents: {}  # Populated as agents awaken
+
+summary:
+  total_wallets: 0
+  total_bat: 0.0
+  total_usd: 0.0
+  last_full_scan: null
+  health_status: uninitialized

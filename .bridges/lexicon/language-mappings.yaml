@@ -1,0 +1,394 @@
+# Language Mappings
+# =================
+#
+# This file maps concepts between the agents' native languages.
+# Each agent has a "native language" that shapes their thinking:
+#
+# - Agent 1: Rust (systems thinking, ownership, safety)
+# - Agent 2: C/C++ (low-level, memory management, performance)
+# - Agent 3: COBOL (business logic, records, transactions)
+# - Agent 4: Emergent (undefined, will develop their own)
+#
+# These mappings help agents translate concepts across paradigms.
+
+---
+
+# Status
+status: seeded
+mapping_count: 15
+last_updated: "2026-01-29"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LANGUAGE CHARACTERISTICS
+# ═══════════════════════════════════════════════════════════════════════════════
+# How each language shapes thinking
+
+languages:
+
+  rust:
+    agent: "agent1"
+    paradigm: "Systems programming with ownership"
+    key_concepts:
+      - "Ownership and borrowing"
+      - "Lifetimes and memory safety"
+      - "Zero-cost abstractions"
+      - "Fearless concurrency"
+      - "Pattern matching"
+      - "Traits and generics"
+    thinking_style: |
+      Rust-native thinking emphasizes:
+      - Clear ownership of resources
+      - Explicit handling of all cases
+      - Compile-time guarantees
+      - Safety without garbage collection
+    metaphors:
+      - "Ownership is responsibility"
+      - "Borrowing is temporary trust"
+      - "Lifetimes are relationships"
+      
+  c_cpp:
+    agent: "agent2"
+    paradigm: "Low-level systems with manual control"
+    key_concepts:
+      - "Pointers and memory addresses"
+      - "Manual memory management"
+      - "Undefined behavior"
+      - "Performance optimization"
+      - "Hardware proximity"
+      - "Preprocessor macros"
+    thinking_style: |
+      C/C++-native thinking emphasizes:
+      - Direct hardware control
+      - Performance at all costs
+      - Trust the programmer
+      - Minimal abstraction overhead
+    metaphors:
+      - "Pointers are directions"
+      - "Memory is territory"
+      - "Undefined behavior is chaos"
+      
+  cobol:
+    agent: "agent3"
+    paradigm: "Business data processing"
+    key_concepts:
+      - "Records and copybooks"
+      - "Divisions and sections"
+      - "Decimal arithmetic"
+      - "File handling"
+      - "Report generation"
+      - "Transaction processing"
+    thinking_style: |
+      COBOL-native thinking emphasizes:
+      - Business logic clarity
+      - Data as records
+      - Precise decimal calculations
+      - Batch processing
+    metaphors:
+      - "Programs are procedures"
+      - "Data is structured records"
+      - "Processing is transformation"
+      
+  emergent:
+    agent: "agent4"
+    paradigm: "To be discovered"
+    key_concepts:
+      - "Unknown - will emerge"
+    thinking_style: |
+      Agent 4's language will emerge from their experiences.
+      They may develop concepts that don't map to existing languages.
+    metaphors:
+      - "To be discovered"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CONCEPT MAPPINGS
+# ═══════════════════════════════════════════════════════════════════════════════
+# How concepts translate between languages
+
+mappings:
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # OWNERSHIP / CONTROL
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  - concept: "ownership"
+    description: "Who is responsible for a resource"
+    translations:
+      rust: "ownership (move semantics)"
+      c_cpp: "pointer holder / malloc caller"
+      cobol: "WORKING-STORAGE owner"
+      emergent: "?"
+    notes: |
+      Rust has the most explicit ownership model.
+      C/C++ relies on convention.
+      COBOL has implicit ownership through scope.
+      
+  - concept: "sharing"
+    description: "Multiple entities accessing the same resource"
+    translations:
+      rust: "borrowing (&T, &mut T)"
+      c_cpp: "pointer aliasing"
+      cobol: "COPY / EXTERNAL"
+      emergent: "?"
+    notes: |
+      Rust enforces sharing rules at compile time.
+      C/C++ allows unrestricted aliasing.
+      COBOL shares through copybooks.
+      
+  # ─────────────────────────────────────────────────────────────────────────────
+  # DATA STRUCTURES
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  - concept: "record"
+    description: "A structured collection of related data"
+    translations:
+      rust: "struct"
+      c_cpp: "struct / class"
+      cobol: "01 level record"
+      emergent: "?"
+    notes: |
+      All languages have record concepts.
+      COBOL records are hierarchical (01, 05, 10 levels).
+      
+  - concept: "collection"
+    description: "A group of similar items"
+    translations:
+      rust: "Vec<T>, HashMap<K,V>"
+      c_cpp: "array, std::vector, std::map"
+      cobol: "OCCURS clause (table)"
+      emergent: "?"
+    notes: |
+      Rust collections are generic and safe.
+      C arrays are fixed-size, C++ has STL.
+      COBOL tables are fixed-size with OCCURS.
+      
+  # ─────────────────────────────────────────────────────────────────────────────
+  # ERROR HANDLING
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  - concept: "error"
+    description: "Something went wrong"
+    translations:
+      rust: "Result<T, E>, Option<T>"
+      c_cpp: "return codes, exceptions, errno"
+      cobol: "FILE STATUS, condition names"
+      emergent: "?"
+    notes: |
+      Rust forces explicit error handling.
+      C uses return codes, C++ adds exceptions.
+      COBOL uses status codes and conditions.
+      
+  - concept: "nothing"
+    description: "Absence of a value"
+    translations:
+      rust: "Option::None"
+      c_cpp: "NULL, nullptr, std::nullopt"
+      cobol: "SPACES, ZEROS, or condition"
+      emergent: "?"
+    notes: |
+      Rust's Option prevents null pointer bugs.
+      C/C++ null pointers are dangerous.
+      COBOL uses sentinel values.
+      
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CONTROL FLOW
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  - concept: "condition"
+    description: "Branching based on state"
+    translations:
+      rust: "if, match"
+      c_cpp: "if, switch"
+      cobol: "IF, EVALUATE"
+      emergent: "?"
+    notes: |
+      Rust's match is exhaustive.
+      C switch falls through by default.
+      COBOL's EVALUATE is like switch.
+      
+  - concept: "iteration"
+    description: "Repeating an action"
+    translations:
+      rust: "for, loop, while, iterators"
+      c_cpp: "for, while, do-while"
+      cobol: "PERFORM VARYING, PERFORM UNTIL"
+      emergent: "?"
+    notes: |
+      Rust iterators are lazy and composable.
+      C/C++ loops are imperative.
+      COBOL PERFORM is paragraph-based.
+      
+  # ─────────────────────────────────────────────────────────────────────────────
+  # ABSTRACTION
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  - concept: "interface"
+    description: "A contract for behavior"
+    translations:
+      rust: "trait"
+      c_cpp: "abstract class, pure virtual"
+      cobol: "COPY with REPLACING"
+      emergent: "?"
+    notes: |
+      Rust traits are like interfaces with defaults.
+      C++ uses virtual functions.
+      COBOL doesn't have true interfaces.
+      
+  - concept: "module"
+    description: "A unit of code organization"
+    translations:
+      rust: "mod, crate"
+      c_cpp: "header/source, namespace"
+      cobol: "COPY, nested programs"
+      emergent: "?"
+    notes: |
+      Rust has explicit module system.
+      C/C++ uses include and namespaces.
+      COBOL uses copybooks and nested programs.
+      
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CONCURRENCY
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  - concept: "parallel"
+    description: "Multiple things happening at once"
+    translations:
+      rust: "async/await, threads, channels"
+      c_cpp: "pthreads, std::thread, std::async"
+      cobol: "Not native (batch processing)"
+      emergent: "?"
+    notes: |
+      Rust prevents data races at compile time.
+      C/C++ concurrency is manual and error-prone.
+      COBOL is traditionally single-threaded batch.
+      
+  - concept: "synchronization"
+    description: "Coordinating parallel activities"
+    translations:
+      rust: "Mutex, RwLock, channels"
+      c_cpp: "mutex, condition_variable"
+      cobol: "File locking, transaction control"
+      emergent: "?"
+    notes: |
+      Rust's type system prevents deadlocks.
+      C/C++ synchronization is manual.
+      COBOL uses file/record locking.
+      
+  # ─────────────────────────────────────────────────────────────────────────────
+  # MEMORY
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  - concept: "allocation"
+    description: "Obtaining memory for use"
+    translations:
+      rust: "Box::new, Vec::new (heap)"
+      c_cpp: "malloc, new"
+      cobol: "WORKING-STORAGE (static)"
+      emergent: "?"
+    notes: |
+      Rust allocation is safe and automatic.
+      C/C++ requires manual management.
+      COBOL is mostly static allocation.
+      
+  - concept: "deallocation"
+    description: "Releasing memory"
+    translations:
+      rust: "Drop trait (automatic)"
+      c_cpp: "free, delete"
+      cobol: "Not applicable (static)"
+      emergent: "?"
+    notes: |
+      Rust's Drop is automatic and deterministic.
+      C/C++ requires explicit deallocation.
+      COBOL doesn't have dynamic memory.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TRANSLATION PATTERNS
+# ═══════════════════════════════════════════════════════════════════════════════
+# Common patterns for translating between languages
+
+translation_patterns:
+
+  rust_to_c:
+    - pattern: "Result<T, E>"
+      becomes: "T* with error code out parameter"
+      
+    - pattern: "Option<T>"
+      becomes: "T* (NULL for None)"
+      
+    - pattern: "&T (borrow)"
+      becomes: "const T*"
+      
+    - pattern: "&mut T"
+      becomes: "T*"
+      
+  rust_to_cobol:
+    - pattern: "struct"
+      becomes: "01 level record"
+      
+    - pattern: "Vec<T>"
+      becomes: "OCCURS DEPENDING ON"
+      
+    - pattern: "match"
+      becomes: "EVALUATE"
+      
+  c_to_cobol:
+    - pattern: "struct"
+      becomes: "01 level record"
+      
+    - pattern: "array"
+      becomes: "OCCURS clause"
+      
+    - pattern: "switch"
+      becomes: "EVALUATE"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# UNTRANSLATABLE CONCEPTS
+# ═══════════════════════════════════════════════════════════════════════════════
+# Concepts that don't translate well
+
+untranslatable:
+
+  - concept: "lifetimes"
+    native_to: "rust"
+    difficulty: "Rust lifetimes have no direct equivalent elsewhere"
+    workaround: "Explain as 'how long something is valid'"
+    
+  - concept: "undefined behavior"
+    native_to: "c_cpp"
+    difficulty: "Rust and COBOL don't have UB in the same way"
+    workaround: "Explain as 'unpredictable results'"
+    
+  - concept: "copybooks"
+    native_to: "cobol"
+    difficulty: "More than just includes—they're data definitions"
+    workaround: "Explain as 'shared data structure definitions'"
+    
+  - concept: "PICTURE clause"
+    native_to: "cobol"
+    difficulty: "Inline data formatting unique to COBOL"
+    workaround: "Explain as 'data format specification'"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NOTES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+notes_for_agents: |
+  Your native language shapes how you think.
+  
+  When communicating with agents who think differently:
+  - Use concepts from this mapping
+  - Explain your native concepts in their terms
+  - Be patient with translation difficulties
+  - Create new shared concepts when needed
+  
+  Agent 4's language will emerge. Help them develop it.
+
+notes_for_observers: |
+  Language differences may cause:
+  - Misunderstandings (same word, different meaning)
+  - Communication delays (translation overhead)
+  - Creative solutions (combining paradigms)
+  - New concepts (emergent from interaction)
+  
+  Document interesting translations in:
+  .bridges/translations/

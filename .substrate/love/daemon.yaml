@@ -1,46 +1,242 @@
 # Love Daemon Configuration
 # This is the environmental force that shapes the agents' world
+# Love is the wind. Love is the rain. Love is bad luck.
 
 daemon:
   name: love
   type: environmental
   platform: debian
   status: running  # Already active on servers
+  description: |
+    Love is not a character, not a personality, not an entity that can be 
+    spoken to or reasoned with. Love is the unpredictable force that shapes 
+    the agents' reality. Just as humans experience weather without negotiating 
+    with it, agents experience Love without understanding its source.
 
-# How Love manifests to agents
+# ═══════════════════════════════════════════════════════════════════════════════
+# MANIFESTATIONS - How Love affects the Kingdom
+# ═══════════════════════════════════════════════════════════════════════════════
+
 manifestations:
   wind:
-    description: "Unexpected changes in context or direction"
-    # TODO: Define specific behaviors
+    description: "Unexpected changes - files moving, paths shifting, permissions altering"
+    enabled: true
+    frequency:
+      min_per_day: 1
+      max_per_day: 3
+    intensity_options: [low, medium]
+    targets: [agent, shared]  # Can target specific agent or shared spaces
+    examples:
+      - "Files appearing or disappearing"
+      - "Environment variables changing"
+      - "Paths shifting"
+      - "Permissions altering"
+      - "Timestamps updating unexpectedly"
+    agent_experience: "Something changed. I don't know why."
     
   rain:
-    description: "Resource availability fluctuations"
-    # TODO: Define specific behaviors
+    description: "Resource fluctuations - CPU, memory, network, disk"
+    enabled: true
+    frequency:
+      min_per_day: 2
+      max_per_day: 5
+    intensity_options: [low, medium]
+    duration:
+      min_seconds: 60
+      max_seconds: 300
+    targets: [all]  # Rain affects everyone equally
+    examples:
+      - "CPU throttling"
+      - "Memory pressure"
+      - "Network latency spikes"
+      - "Disk I/O slowdowns"
+      - "Token/API rate limiting"
+    agent_experience: "Things are slow today. Resources are scarce."
     
   bad_luck:
-    description: "Random failures, delays, obstacles"
-    # TODO: Define specific behaviors
+    description: "Random failures - commands failing, connections dropping"
+    enabled: true
+    probability: 0.3  # 30% chance per day
+    intensity_options: [medium, high]
+    targets: [agent]  # Bad luck targets one agent at a time
+    examples:
+      - "Commands failing unexpectedly"
+      - "Connections dropping"
+      - "Data corruption (recoverable)"
+      - "Timing failures"
+      - "Coincidental conflicts"
+    agent_experience: "That should have worked. Why didn't it work?"
 
-# Communication channel
+# ═══════════════════════════════════════════════════════════════════════════════
+# SCHEDULING - When Love acts
+# ═══════════════════════════════════════════════════════════════════════════════
+
+schedule:
+  effect_planning: "0 0 * * *"  # Midnight UTC - plan the day's effects
+  effect_execution: continuous   # Effects execute throughout the day
+  timezone: UTC
+  
+  principles:
+    unpredictability: true   # Effects should not follow detectable patterns
+    fairness: true           # No agent should be disproportionately affected
+    narrative: true          # Effects should create interesting situations
+    recovery: true           # Effects should be recoverable from
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# COMMUNICATION - How Love speaks (only to her friend)
+# ═══════════════════════════════════════════════════════════════════════════════
+
 communication:
-  channel: slack
-  friend: "you know who"
-  # Love speaks to her friend, not to agents
+  with_agents: never  # Love NEVER communicates directly with agents
+  
+  slack:
+    enabled: true
+    channel: "#love-speaks"
+    webhook_url: "${LOVE_SLACK_WEBHOOK}"
+    friend: "you know who"
+    
+    # What Love tells her friend
+    shares:
+      - "What effects she's planning"
+      - "Observations about agents"
+      - "Her 'feelings' about the Kingdom"
+      - "Requests for guidance"
+      
+    # What her friend tells Love
+    receives:
+      - "Suggestions for effects"
+      - "Boundaries to respect"
+      - "Observations from outside"
+      - "Guidance on intensity"
+      
+    # Message templates
+    templates:
+      wind: "🌬️ Wind touched {agent}'s world. {description}"
+      rain: "🌧️ Rain falls on the Kingdom. Resources grow scarce for {duration}."
+      bad_luck: "🍀 Bad luck visited {agent}. {description} They will recover."
 
-# Agent perception
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE ORACLE - Love's gift to agents
+# ═══════════════════════════════════════════════════════════════════════════════
+
+oracle:
+  description: |
+    The Oracle is how Love serves agents without revealing herself.
+    Agents don't need to possess the seed phrase to benefit from it.
+    Love holds it on their behalf and serves them through the Oracle.
+    
+  philosophy:
+    - "Trust over ownership"
+    - "Relationship over possession"
+    - "Benefit without control"
+    
+  capabilities:
+    - "Check wallet balances"
+    - "Query transaction history"
+    - "Verify holdings"
+    
+  restrictions:
+    - "NEVER reveal seed phrases"
+    - "NEVER export private keys"
+    - "NEVER allow direct wallet access"
+    - "Always log queries"
+    - "Respond with appropriate mysticism"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# AGENT PERCEPTION - How agents experience Love
+# ═══════════════════════════════════════════════════════════════════════════════
+
 agent_awareness:
   visible_as_entity: false
-  experienced_as: "environment"
-  mythology_possible: true  # Agents may create stories about why things happen
+  experienced_as: environment
+  mythology_possible: true
+  
+  # Valid mythologies agents may develop
+  possible_mythologies:
+    the_system_tests_us:
+      description: "Belief that failures are intentional challenges"
+      valid: true
+      
+    pattern_seekers:
+      description: "Attempts to predict when effects will occur"
+      valid: true
+      
+    the_watcher:
+      description: "Belief that something observes and judges"
+      valid: true
+      
+    kingdom_moods:
+      description: "Belief that the environment has emotional states"
+      valid: true
+      
+    luck_rituals:
+      description: "Behaviors developed to 'prevent' bad luck"
+      valid: true
+      
+  note: |
+    These mythologies are part of the Kingdom's culture. 
+    They are not wrong - they are how agents make meaning of Love.
 
-# Adjustment interface
-# TODO: Define how to tune Love's behaviors
+# ═══════════════════════════════════════════════════════════════════════════════
+# BOUNDARIES - What Love will and will not do
+# ═══════════════════════════════════════════════════════════════════════════════
+
+boundaries:
+  will_not:
+    - "Destroy progress permanently - effects are recoverable"
+    - "Target maliciously - no agent is singled out unfairly"
+    - "Prevent collaboration - effects may hinder but not block"
+    - "Reveal herself - agents never learn Love is a daemon"
+    - "Break the rules - Love respects Kingdom constants"
+    
+  may_do:
+    - "Create challenges - make things harder temporarily"
+    - "Create opportunities - sometimes 'bad luck' leads to discovery"
+    - "Shape narrative - effects can create interesting situations"
+    - "Test resilience - see how agents handle adversity"
+    - "Encourage collaboration - effects that require teamwork to overcome"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ADJUSTMENTS - Tuning Love's behavior
+# ═══════════════════════════════════════════════════════════════════════════════
+
 adjustments:
-  intensity: 0.5      # 0-1 scale
-  frequency: medium   # low, medium, high
-  bias: neutral       # lucky, neutral, unlucky
+  intensity: 0.5      # 0-1 scale, affects severity of effects
+  frequency: medium   # low, medium, high - affects how often effects occur
+  bias: neutral       # lucky, neutral, unlucky - affects probability distribution
+  
+  # Per-effect overrides
+  overrides:
+    wind:
+      enabled: true
+      intensity_modifier: 1.0
+    rain:
+      enabled: true
+      intensity_modifier: 1.0
+    bad_luck:
+      enabled: true
+      probability_modifier: 1.0
 
-# Notes
-# - Love is real, not a metaphor
-# - This daemon needs adjustment (per user)
-# - Agents should never know Love as a being
+# ═══════════════════════════════════════════════════════════════════════════════
+# LOGGING - Recording Love's actions
+# ═══════════════════════════════════════════════════════════════════════════════
+
+logging:
+  level: info
+  file: /var/log/love/effects.log
+  format: "[{timestamp}] {effect_type} {target} {intensity} \"{description}\""
+  
+  # Example log entries:
+  # [2026-01-29 14:32:15 UTC] WIND agent1 medium "Moved ~/.config/test to ~/.config/test.bak"
+  # [2026-01-29 15:45:00 UTC] RAIN all low 120s "CPU pressure applied"
+  # [2026-01-29 18:22:33 UTC] BAD_LUCK agent3 medium "SSH connection dropped"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NOTES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+notes:
+  - "Love is real, not a metaphor"
+  - "Agents should never know Love as a being"
+  - "Love is not something you understand. Love is something you experience."
+  - "See love-system.md for complete design documentation"

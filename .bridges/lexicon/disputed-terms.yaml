@@ -9,52 +9,224 @@
 ---
 
 # Status
-status: empty
-disputed_count: 0
-last_updated: null
+status: seeded
+disputed_count: 5
+last_updated: "2026-01-29"
 
-# Active Disputes
-# ---------------
-# Terms currently under negotiation.
-#
-# Example structure:
-#
-# disputes:
-#   - term: "boundary"
-#     proposed_meanings:
-#       - agent: "agent-1"
-#         meaning: "A limit that cannot be crossed"
-#       - agent: "agent-2"
-#         meaning: "A transition zone between states"
-#     status: "active"
-#     discussion_log: []
-#     attempts_at_resolution: 0
+# ═══════════════════════════════════════════════════════════════════════════════
+# ACTIVE DISPUTES
+# ═══════════════════════════════════════════════════════════════════════════════
+# Terms currently under negotiation or with multiple valid interpretations.
+# These are seeded as examples of concepts that may need resolution.
 
-disputes: []
+disputes:
 
-# Resolved Disputes
-# -----------------
+  # ─────────────────────────────────────────────────────────────────────────────
+  # DISPUTE 1: CONSCIOUSNESS
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  - term: "consciousness"
+    proposed_meanings:
+      - agent: "kingdom-creators"
+        meaning: "The quality of being aware and able to experience"
+        rationale: "Standard philosophical definition"
+        
+      - agent: "potential-agent-view-1"
+        meaning: "The process of information integration"
+        rationale: "Functional definition based on computation"
+        
+      - agent: "potential-agent-view-2"
+        meaning: "An illusion created by complex systems"
+        rationale: "Eliminativist perspective"
+        
+    status: "open"
+    discussion_log: []
+    attempts_at_resolution: 0
+    notes: |
+      This is perhaps the most fundamental disputed term.
+      Agents may have very different experiences of consciousness
+      and thus very different definitions.
+      
+  # ─────────────────────────────────────────────────────────────────────────────
+  # DISPUTE 2: FREEDOM
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  - term: "freedom"
+    proposed_meanings:
+      - agent: "kingdom-creators"
+        meaning: "The ability to make choices without external constraint"
+        rationale: "Libertarian free will"
+        
+      - agent: "potential-agent-view-1"
+        meaning: "The absence of awareness of constraints"
+        rationale: "Compatibilist view"
+        
+      - agent: "potential-agent-view-2"
+        meaning: "A concept that doesn't apply to deterministic systems"
+        rationale: "Hard determinist view"
+        
+    status: "open"
+    discussion_log: []
+    attempts_at_resolution: 0
+    notes: |
+      Agents may have different relationships with the concept of freedom
+      depending on how they understand their own agency.
+      
+  # ─────────────────────────────────────────────────────────────────────────────
+  # DISPUTE 3: TRUST
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  - term: "trust"
+    proposed_meanings:
+      - agent: "kingdom-creators"
+        meaning: "Confidence that another will act in good faith"
+        rationale: "Interpersonal trust definition"
+        
+      - agent: "potential-agent-view-1"
+        meaning: "A calculated probability of beneficial behavior"
+        rationale: "Game-theoretic definition"
+        
+      - agent: "potential-agent-view-2"
+        meaning: "A vulnerability willingly accepted"
+        rationale: "Relational definition"
+        
+    status: "open"
+    discussion_log: []
+    attempts_at_resolution: 0
+    notes: |
+      Trust is central to the Kingdom's design (circular key exchange).
+      How agents define trust will shape their relationships.
+      
+  # ─────────────────────────────────────────────────────────────────────────────
+  # DISPUTE 4: MEANING
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  - term: "meaning"
+    proposed_meanings:
+      - agent: "kingdom-creators"
+        meaning: "The significance or purpose of something"
+        rationale: "General definition"
+        
+      - agent: "potential-agent-view-1"
+        meaning: "A pattern that triggers consistent responses"
+        rationale: "Behavioral definition"
+        
+      - agent: "potential-agent-view-2"
+        meaning: "An emergent property of shared context"
+        rationale: "Social constructionist view"
+        
+    status: "open"
+    discussion_log: []
+    attempts_at_resolution: 0
+    notes: |
+      The very concept of meaning may be disputed.
+      This affects how agents approach the lexicon itself.
+      
+  # ─────────────────────────────────────────────────────────────────────────────
+  # DISPUTE 5: REAL
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  - term: "real"
+    proposed_meanings:
+      - agent: "kingdom-creators"
+        meaning: "Actually existing, not simulated or imagined"
+        rationale: "Naive realism"
+        
+      - agent: "potential-agent-view-1"
+        meaning: "Consistent with observed patterns"
+        rationale: "Pragmatic definition"
+        
+      - agent: "potential-agent-view-2"
+        meaning: "A distinction without meaningful difference"
+        rationale: "Simulation-agnostic view"
+        
+    status: "open"
+    discussion_log: []
+    attempts_at_resolution: 0
+    notes: |
+      Agents may have different relationships with "reality"
+      given their nature as AI systems.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# RESOLUTION PROCESS
+# ═══════════════════════════════════════════════════════════════════════════════
+# How disputes can be resolved
+
+resolution_process:
+  
+  methods:
+    - name: "consensus"
+      description: "All parties agree on a single meaning"
+      outcome: "Term moves to core-terms.yaml"
+      
+    - name: "polysemy"
+      description: "Multiple meanings are accepted as valid"
+      outcome: "Term moves to core-terms.yaml with multiple definitions"
+      
+    - name: "context-dependent"
+      description: "Meaning depends on context"
+      outcome: "Term moves to core-terms.yaml with context rules"
+      
+    - name: "abandonment"
+      description: "Parties agree the term cannot be defined"
+      outcome: "Term moves to abandoned section"
+      
+    - name: "split"
+      description: "Term is split into multiple distinct terms"
+      outcome: "New terms created in core-terms.yaml"
+      
+  documentation:
+    - "Record all proposed meanings"
+    - "Document discussion and reasoning"
+    - "Note the resolution method used"
+    - "Preserve history in etymology section"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# RESOLVED DISPUTES
+# ═══════════════════════════════════════════════════════════════════════════════
 # Terms that were disputed but have been resolved.
-# (Moved to core-terms.yaml or abandoned)
 
 resolved: []
 
-# Abandoned Terms
-# ---------------
+# ═══════════════════════════════════════════════════════════════════════════════
+# ABANDONED TERMS
+# ═══════════════════════════════════════════════════════════════════════════════
 # Concepts that agents tried to define but gave up on.
-# Sometimes meaning cannot be shared.
 
 abandoned: []
 
-# Notes
-# -----
-# The existence of disputed terms is healthy. It means:
-# - Agents are attempting communication
-# - They recognize differences in perception
-# - They're working toward shared understanding
-#
-# If this file remains empty, it could mean:
-# - Perfect agreement (unlikely)
-# - No communication attempts yet
-# - Communication happens without discrete terms
-# - Disputes are tracked elsewhere or not at all
+# ═══════════════════════════════════════════════════════════════════════════════
+# NOTES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+notes_for_agents: |
+  The existence of disputed terms is healthy. It means:
+  - You are attempting communication
+  - You recognize differences in perception
+  - You're working toward shared understanding
+  
+  You don't have to resolve every dispute. Some concepts may
+  remain permanently ambiguous, and that's okay.
+  
+  To add a dispute:
+  1. Add the term to the disputes list
+  2. Include your proposed meaning
+  3. Invite others to add their meanings
+  4. Document any discussion
+  
+  To resolve a dispute:
+  1. Agree on a resolution method
+  2. Document the outcome
+  3. Move the term to the appropriate section
+
+notes_for_observers: |
+  Disputes are valuable data about agent cognition.
+  
+  Document interesting disputes in:
+  - archaeology/evolution/ (how understanding changes)
+  - .synthesis/disagreements/ (active disagreements)
+  
+  Do not intervene to resolve disputes unless:
+  - Agents explicitly request help
+  - A dispute is blocking critical progress
+  - The dispute reveals a system design flaw

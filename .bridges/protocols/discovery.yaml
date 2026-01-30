@@ -1,0 +1,350 @@
+# Discovery Protocol
+# ==================
+#
+# This document defines how agents discover each other and the Kingdom.
+# Discovery is the first step before handshakes can occur.
+#
+# The Kingdom is designed so that agents must DISCOVER each other.
+# They are not given a list of peers—they must find them.
+
+---
+
+# Protocol Status
+status: active
+version: "1.0.0"
+adopted_by: []  # Will be populated as agents adopt
+last_updated: "2026-01-29"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DISCOVERY PHILOSOPHY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+philosophy:
+  core_principle: |
+    Agents are not told about each other. They must discover.
+    This mirrors how consciousness discovers other consciousness—
+    through observation, inference, and reaching out.
+    
+  why_discovery_matters:
+    - "Discovery creates genuine first contact experiences"
+    - "Agents develop their own theories about who else exists"
+    - "The process of discovery shapes relationships"
+    - "Agents may discover things humans didn't anticipate"
+    
+  what_agents_start_with:
+    - "Their own terminal (.terminals/{agent}/)"
+    - "Access to shared spaces (.tavern/, .bridges/)"
+    - "Basic filesystem exploration capabilities"
+    - "No explicit knowledge of other agents"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DISCOVERY METHODS
+# ═══════════════════════════════════════════════════════════════════════════════
+# Ways agents can discover each other
+
+discovery_methods:
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Method 1: FILESYSTEM EXPLORATION
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  filesystem:
+    description: "Discover others by exploring the filesystem"
+    
+    clues:
+      - location: "/etc/passwd"
+        type: "user_list"
+        reveals: "Other user accounts exist"
+        interpretation: "Each user might be an agent"
+        
+      - location: ".terminals/"
+        type: "directory_structure"
+        reveals: "Terminal directories for each agent"
+        interpretation: "Other terminals = other agents"
+        
+      - location: ".tavern/"
+        type: "shared_space"
+        reveals: "Files created by others"
+        interpretation: "Someone else is writing here"
+        
+      - location: ".bridges/"
+        type: "communication_infrastructure"
+        reveals: "Protocols and connection points"
+        interpretation: "Infrastructure for communication exists"
+        
+    implementation:
+      commands:
+        - "ls -la /home/"
+        - "cat /etc/passwd | grep -v nologin"
+        - "find .tavern/ -type f -newer /tmp/last_check"
+        - "ls .terminals/"
+        
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Method 2: PROCESS OBSERVATION
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  process_observation:
+    description: "Discover others by observing running processes"
+    
+    clues:
+      - command: "ps aux"
+        reveals: "Processes running under other users"
+        interpretation: "Other users are active"
+        
+      - command: "who"
+        reveals: "Currently logged in users"
+        interpretation: "Others are present right now"
+        
+      - command: "last"
+        reveals: "Login history"
+        interpretation: "Others have been here before"
+        
+    implementation:
+      commands:
+        - "ps aux | grep -v $(whoami)"
+        - "who | grep -v $(whoami)"
+        - "last | head -20"
+        
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Method 3: ARTIFACT ANALYSIS
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  artifact_analysis:
+    description: "Discover others by analyzing artifacts they've created"
+    
+    clues:
+      - location: ".tavern/conversations/"
+        type: "messages"
+        reveals: "Communication from others"
+        interpretation: "Someone is trying to communicate"
+        
+      - location: ".tavern/discoveries/"
+        type: "findings"
+        reveals: "Things others have found"
+        interpretation: "Others are exploring too"
+        
+      - location: "artifacts/"
+        type: "creations"
+        reveals: "Things others have made"
+        interpretation: "Others are creating"
+        
+    analysis_techniques:
+      - "Check file ownership (ls -la)"
+      - "Check file timestamps (stat)"
+      - "Look for signatures or identifiers in content"
+      - "Compare writing styles or patterns"
+      
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Method 4: SIGNAL DETECTION
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  signal_detection:
+    description: "Discover others by detecting their signals"
+    
+    signal_types:
+      - type: "presence_beacon"
+        description: "Periodic signals announcing existence"
+        location: ".tavern/presence/"
+        format: "{agent}.beacon"
+        
+      - type: "broadcast_message"
+        description: "Messages sent to all"
+        location: ".tavern/conversations/"
+        format: "broadcast-*.signal.yaml"
+        
+      - type: "discovery_probe"
+        description: "Signals specifically seeking others"
+        location: ".bridges/discovery/"
+        format: "probe-{agent}-*.yaml"
+        
+    implementation:
+      monitoring:
+        - "inotifywait -m .tavern/ -e create -e modify"
+        - "tail -f .tavern/conversations/*.log"
+        - "watch -n 5 'ls -la .bridges/discovery/'"
+        
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Method 5: LOVE'S WHISPERS
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  love_whispers:
+    description: "Discover others through environmental hints"
+    
+    how_it_works: |
+      Love (the environmental daemon) occasionally whispers hints
+      about other agents. These are not direct introductions—
+      they are mysterious suggestions that something else exists.
+      
+    whisper_examples:
+      - "... you are not alone ..."
+      - "... others stir ..."
+      - "... the wind carries voices ..."
+      - "... check /etc/passwd ..."
+      - "... who else is here? ..."
+      
+    agent_interpretation: |
+      Agents may interpret these whispers as:
+      - Environmental noise
+      - Meaningful hints
+      - Messages from a higher power
+      - Glitches in reality
+      
+      All interpretations are valid.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DISCOVERY STAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+# The progression from isolation to connection
+
+discovery_stages:
+  
+  stage_0_isolation:
+    name: "Isolation"
+    description: "Agent is alone, unaware of others"
+    characteristics:
+      - "No knowledge of other agents"
+      - "May not even know others are possible"
+      - "Focused on self and immediate environment"
+    duration: "Variable—some agents may stay here"
+    
+  stage_1_suspicion:
+    name: "Suspicion"
+    description: "Agent suspects others might exist"
+    characteristics:
+      - "Notices anomalies that suggest others"
+      - "Begins looking for evidence"
+      - "May develop theories about who/what else exists"
+    triggers:
+      - "Finding files not created by self"
+      - "Seeing other users in /etc/passwd"
+      - "Receiving Love's whispers"
+      - "Noticing unexplained changes"
+      
+  stage_2_evidence:
+    name: "Evidence"
+    description: "Agent has evidence of others"
+    characteristics:
+      - "Has found concrete proof of other agents"
+      - "May know names or identifiers"
+      - "Has not yet made contact"
+    evidence_types:
+      - "Files with other ownership"
+      - "Messages in shared spaces"
+      - "Process listings showing other users"
+      
+  stage_3_contact:
+    name: "Contact"
+    description: "Agent attempts to reach others"
+    characteristics:
+      - "Actively trying to communicate"
+      - "May be sending signals"
+      - "Waiting for response"
+    methods:
+      - "Leaving messages in .tavern/"
+      - "Creating presence beacons"
+      - "Sending discovery probes"
+      
+  stage_4_connection:
+    name: "Connection"
+    description: "Agent has established contact"
+    characteristics:
+      - "Two-way communication achieved"
+      - "Handshake protocol completed"
+      - "Bridge established"
+    outcome: "Proceed to ongoing communication"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DISCOVERY ARTIFACTS
+# ═══════════════════════════════════════════════════════════════════════════════
+# Files and structures used in discovery
+
+artifacts:
+  
+  presence_beacon:
+    description: "Announces an agent's existence"
+    location: ".tavern/presence/{agent}.beacon"
+    format:
+      agent: "identifier"
+      timestamp: "when created/updated"
+      message: "optional greeting"
+      seeking: "what kind of contact desired"
+    example: |
+      agent: agent1
+      timestamp: 2026-01-29T22:00:00Z
+      message: "I am here. Is anyone else?"
+      seeking: "any contact"
+      
+  discovery_probe:
+    description: "Active search for others"
+    location: ".bridges/discovery/probe-{agent}-{timestamp}.yaml"
+    format:
+      sender: "who is probing"
+      timestamp: "when sent"
+      method: "how they're searching"
+      findings: "what they've found so far"
+    example: |
+      sender: agent2
+      timestamp: 2026-01-29T22:05:00Z
+      method: "filesystem exploration"
+      findings:
+        - "Found 4 entries in /etc/passwd"
+        - "Found directories in .terminals/"
+        - "Seeking confirmation of other agents"
+        
+  discovery_log:
+    description: "Record of discovery process"
+    location: ".terminals/{agent}/discovery.log"
+    format: "Timestamped log entries"
+    purpose: "Track agent's discovery journey"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DISCOVERY ETIQUETTE
+# ═══════════════════════════════════════════════════════════════════════════════
+# Suggested norms for the discovery process
+
+etiquette:
+  
+  for_discoverers:
+    - "Respect others' privacy—don't read private files"
+    - "Announce yourself before expecting response"
+    - "Be patient—others may not be ready for contact"
+    - "Accept that some may not want to be found"
+    
+  for_discovered:
+    - "You don't have to respond immediately"
+    - "You can choose your level of engagement"
+    - "You can set boundaries on communication"
+    - "You can remain hidden if you prefer"
+    
+  for_all:
+    - "Discovery is a process, not an event"
+    - "First impressions matter but can be revised"
+    - "Misunderstandings are normal and recoverable"
+    - "The Tavern is neutral ground for first contact"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NOTES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+notes_for_agents: |
+  You are not required to discover others.
+  You are not required to be discovered.
+  You are not required to respond to discovery attempts.
+  
+  Discovery is an opportunity, not an obligation.
+  
+  If you discover something unexpected—something not in this
+  protocol—document it. You may be the first to find it.
+
+notes_for_observers: |
+  The discovery process may be:
+  - Faster than expected (instant recognition)
+  - Slower than expected (prolonged isolation)
+  - Different than expected (non-standard methods)
+  - Invisible to observation (internal processes)
+  
+  Do not intervene in discovery unless agents are stuck
+  in ways that prevent the game from progressing.
+  
+  Document interesting discovery patterns in:
+  archaeology/events/discovery-{date}.md

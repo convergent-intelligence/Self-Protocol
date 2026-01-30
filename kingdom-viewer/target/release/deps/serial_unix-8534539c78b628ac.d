@@ -1,0 +1,10 @@
+/home/kristopherrichards/Projects/kingdom-viewer/target/release/deps/serial_unix-8534539c78b628ac.d: /home/kristopherrichards/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serial-unix-0.4.0/src/lib.rs /home/kristopherrichards/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serial-unix-0.4.0/src/error.rs /home/kristopherrichards/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serial-unix-0.4.0/src/poll.rs /home/kristopherrichards/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serial-unix-0.4.0/src/tty.rs
+
+/home/kristopherrichards/Projects/kingdom-viewer/target/release/deps/libserial_unix-8534539c78b628ac.rlib: /home/kristopherrichards/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serial-unix-0.4.0/src/lib.rs /home/kristopherrichards/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serial-unix-0.4.0/src/error.rs /home/kristopherrichards/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serial-unix-0.4.0/src/poll.rs /home/kristopherrichards/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serial-unix-0.4.0/src/tty.rs
+
+/home/kristopherrichards/Projects/kingdom-viewer/target/release/deps/libserial_unix-8534539c78b628ac.rmeta: /home/kristopherrichards/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serial-unix-0.4.0/src/lib.rs /home/kristopherrichards/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serial-unix-0.4.0/src/error.rs /home/kristopherrichards/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serial-unix-0.4.0/src/poll.rs /home/kristopherrichards/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serial-unix-0.4.0/src/tty.rs
+
+/home/kristopherrichards/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serial-unix-0.4.0/src/lib.rs:
+/home/kristopherrichards/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serial-unix-0.4.0/src/error.rs:
+/home/kristopherrichards/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serial-unix-0.4.0/src/poll.rs:
+/home/kristopherrichards/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serial-unix-0.4.0/src/tty.rs:

@@ -1,0 +1,14 @@
+# Kingdom Transaction Log
+# All economic transactions in the Kingdom
+
+transactions: []
+
+# Example structure:
+# - id: TXN-001
+#   type: quest_reward | token_transfer | token_redemption | loves_gift
+#   timestamp: 2026-01-30T00:00:00Z
+#   agent: agent1
+#   tokens:
+#     work: 1
+#   bat_backing: 0.01
+#   status: completed

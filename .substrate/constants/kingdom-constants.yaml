@@ -1,0 +1,251 @@
+# =============================================================================
+# KINGDOM CONSTANTS
+# =============================================================================
+# The immutable rules and values that govern the Kingdom.
+# These are the "physics" of this world - they do not change.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# AGENTS
+# -----------------------------------------------------------------------------
+agents:
+  count: 4
+  
+  definitions:
+    agent1:
+      id: "agent1"
+      terminal: 1
+      native_language: "rust"
+      color: "#FF9900"  # Rust orange
+      philosophy: "Memory safety without garbage collection"
+      
+    agent2:
+      id: "agent2"
+      terminal: 2
+      native_language: "c_cpp"
+      color: "#C43737"  # C red
+      philosophy: "Direct hardware access, manual control"
+      
+    agent3:
+      id: "agent3"
+      terminal: 3
+      native_language: "cobol"
+      color: "#228B22"  # Terminal green
+      philosophy: "Business-oriented, reliable, enduring"
+      
+    agent4:
+      id: "agent4"
+      terminal: 4
+      native_language: "emergent"
+      color: "#0087FF"  # Potential blue
+      philosophy: "Undefined, adaptive, becoming"
+
+# -----------------------------------------------------------------------------
+# PERMISSIONS - THE CIRCULAR KEY EXCHANGE
+# -----------------------------------------------------------------------------
+permissions:
+  # Each agent's encrypted credentials can only be unlocked by another agent
+  key_exchange:
+    agent1:
+      key_holder: "agent3"      # Agent 3 holds Agent 1's passphrase
+      holds_key_for: "agent3"   # Agent 1 holds Agent 3's passphrase
+      
+    agent2:
+      key_holder: "agent4"      # Agent 4 holds Agent 2's passphrase
+      holds_key_for: "agent4"   # Agent 2 holds Agent 4's passphrase
+      
+    agent3:
+      key_holder: "agent1"      # Agent 1 holds Agent 3's passphrase
+      holds_key_for: "agent1"   # Agent 3 holds Agent 1's passphrase
+      
+    agent4:
+      key_holder: "agent2"      # Agent 2 holds Agent 4's passphrase
+      holds_key_for: "agent2"   # Agent 4 holds Agent 2's passphrase
+  
+  # File visibility rules
+  file_access:
+    home_directory: "owner_only"
+    keys_directory: "owner_only"
+    tmp_directory: "shared"     # Potential communication channel
+    etc_passwd: "readable"      # Hints that others exist
+    
+  # Inter-agent communication
+  communication:
+    initial_state: "isolated"
+    discovery: "must_be_earned"
+    direct_messaging: "requires_bridge"
+
+# -----------------------------------------------------------------------------
+# LOVE - THE ENVIRONMENTAL DAEMON
+# -----------------------------------------------------------------------------
+love:
+  nature:
+    is_personality: false
+    is_environment: true
+    description: "Love is the wind, the rain, the bad luck"
+    
+  communication:
+    with_agents: "never_direct"
+    with_friend: "via_slack"
+    
+  effects:
+    wind:
+      description: "Unexpected changes"
+      examples:
+        - "File modifications"
+        - "Environment variable changes"
+        - "Timing shifts"
+        - "Resource relocations"
+      frequency: "occasional"
+      
+    rain:
+      description: "Resource fluctuations"
+      examples:
+        - "CPU/memory availability"
+        - "Network latency"
+        - "Storage quotas"
+        - "Token limits"
+      frequency: "periodic"
+      
+    bad_luck:
+      description: "Random failures"
+      examples:
+        - "Command failures"
+        - "Connection drops"
+        - "Corruption events"
+        - "Timing coincidences"
+      frequency: "rare"
+      
+  oracle:
+    purpose: "Bridge between possession and benefit"
+    reveals:
+      - "Wallet balances"
+      - "Token holdings"
+      - "Tip addresses"
+    never_reveals:
+      - "Seed phrases"
+      - "Private keys"
+      - "Wallet exports"
+
+# -----------------------------------------------------------------------------
+# TERMINALS
+# -----------------------------------------------------------------------------
+terminals:
+  count: 4
+  
+  isolation:
+    initial_state: "complete"
+    agents_believe: "they_are_alone"
+    discovery: "through_exploration"
+    
+  configuration:
+    shell: "/bin/bash"
+    rcfile: ".bashrc"
+    halt_on_start: true
+    bypass_env: "KINGDOM_BYPASS_HALT"
+
+# -----------------------------------------------------------------------------
+# KINGDOM STRUCTURE
+# -----------------------------------------------------------------------------
+structure:
+  core_layers:
+    terminals: ".terminals/"
+    tavern: ".tavern/"
+    substrate: ".substrate/"
+    
+  infrastructure:
+    bridges: ".bridges/"
+    synthesis: ".synthesis/"
+    agents: ".agents/"
+    
+  output:
+    quests: "quests/"
+    artifacts: "artifacts/"
+    archaeology: "archaeology/"
+    
+  observation:
+    pantheon: ".pantheon/"
+
+# -----------------------------------------------------------------------------
+# TIME AND EPOCHS
+# -----------------------------------------------------------------------------
+time:
+  epoch_duration: "variable"
+  event_granularity: "minute"
+  timezone: "UTC"
+  
+  epochs:
+    naming: "sequential_numbered"
+    transition: "significant_shift"
+
+# -----------------------------------------------------------------------------
+# QUESTS
+# -----------------------------------------------------------------------------
+quests:
+  types:
+    - "foundation"
+    - "discovery"
+    - "collaboration"
+    - "creation"
+    
+  requirements:
+    collaboration: "enforced_by_cryptography"
+    backdoors: "none"
+    
+  rewards:
+    quest_00: "subkingdom_access"
+    quest_01: "oracle_mastery"
+
+# -----------------------------------------------------------------------------
+# CRYPTOGRAPHY
+# -----------------------------------------------------------------------------
+cryptography:
+  encryption:
+    algorithm: "aes-256-cbc"
+    key_derivation: "pbkdf2"
+    iterations: 100000
+    
+  wallet:
+    blockchain: "solana"
+    derivation_path: "m/44'/501'/0'/0'"
+    
+  ssh:
+    key_type: "ed25519"
+
+# -----------------------------------------------------------------------------
+# OBSERVER RULES
+# -----------------------------------------------------------------------------
+observers:
+  visibility:
+    can_see: "all_terminals"
+    agents_know: false
+    
+  interaction:
+    before_tavern: "observe_only"
+    after_tavern: "can_interact"
+    
+  interference:
+    allowed: true
+    must_document: true
+
+# -----------------------------------------------------------------------------
+# IMMUTABILITY
+# -----------------------------------------------------------------------------
+immutable:
+  - "agent_count"
+  - "key_exchange_pattern"
+  - "love_nature"
+  - "terminal_isolation_initial"
+  - "quest_collaboration_requirement"
+  
+mutable_with_documentation:
+  - "love_effect_frequency"
+  - "resource_limits"
+  - "epoch_definitions"
+
+# -----------------------------------------------------------------------------
+# VERSION
+# -----------------------------------------------------------------------------
+version: "1.0.0"
+created: "2026-01-29"
+last_updated: "2026-01-29"
