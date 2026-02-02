@@ -40,6 +40,168 @@ Everything is real. This is how you orchestrate intelligence when filters are no
 
 ---
 
+## Kingdom Node Infrastructure
+
+The Kingdom runs on four specialized nodes, each with a distinct role in the hierarchy:
+
+```
+                    ┌─────────────────┐
+                    │    🛡️ GUARDIAN   │
+                    │    (Gateway)     │
+                    │  mapyourmind.me  │
+                    └────────┬────────┘
+                             │
+         ┌───────────────────┼───────────────────┐
+         │                   │                   │
+┌────────┴────────┐ ┌────────┴────────┐ ┌────────┴────────┐
+│   👁️ WATCHER    │ │   🔨 BUILDER    │ │   📜 SCRIBE     │
+│   (Observes)    │ │   (Creates)     │ │   (Records)     │
+│   Monitoring    │ │   CI/CD         │ │   Documentation │
+└─────────────────┘ └─────────────────┘ └─────────────────┘
+```
+
+### 🛡️ Guardian Node
+**Purpose:** Security, authentication, access control, API gateway
+
+| Component | Description |
+|-----------|-------------|
+| **Domain** | mapyourmind.me |
+| **Stack** | Nginx, OpenClaw, Self-Protocol Viewer |
+| **Ports** | 80 (HTTP), 443 (HTTPS), 3000 (API), 3001 (Self-Protocol) |
+
+**Responsibilities:**
+- SSL/TLS termination and certificate management
+- User authentication and authorization
+- API gateway for all Kingdom services
+- Security monitoring and intrusion prevention
+
+**Bootstrap:** `bootstrap/guardian-setup.sh`
+
+---
+
+### 👁️ Watcher Node
+**Purpose:** Monitoring, observability, log aggregation, alerting
+
+| Component | Description |
+|-----------|-------------|
+| **Stack** | Prometheus, Grafana, Loki, Alertmanager |
+| **Ports** | 9090 (Prometheus), 3000 (Grafana), 3100 (Loki), 9093 (Alertmanager) |
+
+**Responsibilities:**
+- Metrics collection from all Kingdom nodes
+- Log aggregation and search
+- Alert management and notification routing
+- Dashboard visualization and reporting
+
+**Bootstrap:** `bootstrap/watcher-setup.sh`
+
+**Key Features:**
+- Pre-configured Prometheus scrape targets for all nodes
+- Grafana dashboards for Kingdom overview
+- Loki for centralized log storage
+- Alert rules for node health, disk, memory
+
+---
+
+### 🔨 Builder Node
+**Purpose:** CI/CD, artifact building, container registry, deployments
+
+| Component | Description |
+|-----------|-------------|
+| **Stack** | Docker Registry, Registry UI, Webhook Handler, Build Runner |
+| **Ports** | 5000 (Registry), 5001 (Registry UI), 8080 (Runner), 9000 (Webhook) |
+
+**Responsibilities:**
+- Container image building and storage
+- Artifact management (releases, snapshots)
+- Webhook-triggered builds from GitHub/GitLab
+- Deployment automation across Kingdom
+
+**Bootstrap:** `bootstrap/builder-setup.sh`
+
+**Key Features:**
+- Private Docker registry with UI
+- Webhook handler for automated builds
+- Build script templates
+- Artifact storage with automatic cleanup
+- Support for Node.js and Rust builds
+
+---
+
+### 📜 Scribe Node
+**Purpose:** Documentation, knowledge capture, structured logging
+
+| Component | Description |
+|-----------|-------------|
+| **Stack** | BookStack Wiki, MariaDB, Log Receiver |
+| **Ports** | 8080 (BookStack), 8081 (Log Receiver), 3306 (MariaDB) |
+
+**Responsibilities:**
+- Wiki and documentation platform
+- Centralized log reception from all nodes
+- Knowledge management and preservation
+- Incident documentation and runbooks
+
+**Bootstrap:** `bootstrap/scribe-setup.sh`
+
+**Key Features:**
+- BookStack wiki with full-text search
+- Log receiver API for structured logging
+- Documentation templates (ADR, Incident, Runbook)
+- Automatic log rotation and archival
+- PDF generation via Pandoc
+
+---
+
+### Node Communication
+
+All nodes communicate through a defined pattern:
+
+| From | To | Purpose |
+|------|-----|---------|
+| All Nodes | Watcher | Metrics (Prometheus) |
+| All Nodes | Scribe | Logs (HTTP API) |
+| Builder | All Nodes | Deployments |
+| Guardian | All Nodes | Authentication |
+
+### Quick Start
+
+```bash
+# On each VPS, run the appropriate bootstrap script:
+
+# Guardian (main gateway)
+curl -O https://raw.githubusercontent.com/vergent/Kingdom/main/bootstrap/guardian-setup.sh
+chmod +x guardian-setup.sh && sudo ./guardian-setup.sh
+
+# Watcher (monitoring)
+curl -O https://raw.githubusercontent.com/vergent/Kingdom/main/bootstrap/watcher-setup.sh
+chmod +x watcher-setup.sh && sudo ./watcher-setup.sh
+
+# Builder (CI/CD)
+curl -O https://raw.githubusercontent.com/vergent/Kingdom/main/bootstrap/builder-setup.sh
+chmod +x builder-setup.sh && sudo ./builder-setup.sh
+
+# Scribe (documentation)
+curl -O https://raw.githubusercontent.com/vergent/Kingdom/main/bootstrap/scribe-setup.sh
+chmod +x scribe-setup.sh && sudo ./scribe-setup.sh
+```
+
+### Status Commands
+
+Each node includes status scripts:
+
+```bash
+# General status (all nodes)
+status.sh
+
+# Node-specific status
+watcher-status.sh   # Watcher node
+builder-status.sh   # Builder node
+scribe-status.sh    # Scribe node
+```
+
+---
+
 ## Directory Structure
 
 ### Core Layers
