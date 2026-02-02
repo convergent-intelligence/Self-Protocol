@@ -1,0 +1,368 @@
+#===============================================================================
+# Weave Configuration - Guardian Node
+# Domain: mapyourmind.me
+# Role: Guardian in Kingdom Hierarchy
+#===============================================================================
+# This configuration defines the node's identity, capabilities, and connections
+# within the Kingdom network and its integration with Self-Protocol + OpenClaw
+#===============================================================================
+
+#-------------------------------------------------------------------------------
+# Node Identity
+#-------------------------------------------------------------------------------
+node:
+  # Unique identifier for this node in the Kingdom network
+  id: "guardian-mapyourmind"
+  
+  # Human-readable name
+  name: "Guardian of the Mind Map"
+  
+  # Node role in Kingdom hierarchy
+  # Options: sovereign, guardian, scribe, herald, seeker
+  role: guardian
+  
+  # Public domain for this node
+  domain: "mapyourmind.me"
+  
+  # Node version (semver)
+  version: "0.1.0"
+  
+  # Node description
+  description: |
+    Guardian node protecting attention and focus for the Kingdom network.
+    Integrates Self-Protocol philosophy with OpenClaw attention tracking.
+
+#-------------------------------------------------------------------------------
+# Network Configuration
+#-------------------------------------------------------------------------------
+network:
+  # Kingdom network identifier
+  kingdom_id: "main"
+  
+  # Network mode: standalone, federated, mesh
+  mode: federated
+  
+  # Peer discovery
+  discovery:
+    enabled: true
+    method: dns  # dns, mdns, static
+    interval: 300  # seconds
+  
+  # Known peers (bootstrap nodes)
+  peers:
+    - host: "sovereign.kingdom.network"
+      port: 443
+      role: sovereign
+    - host: "herald.kingdom.network"
+      port: 443
+      role: herald
+  
+  # Sync configuration
+  sync:
+    enabled: true
+    interval: 60  # seconds
+    batch_size: 100
+    compression: true
+
+#-------------------------------------------------------------------------------
+# Focus Levels Configuration
+#-------------------------------------------------------------------------------
+focus_levels:
+  # Level 1: Scan - Brief glances, surface awareness
+  scan:
+    level: 1
+    name: "Scan"
+    duration_max: 30  # seconds
+    description: "Brief glances, surface-level awareness"
+    color: "#94a3b8"  # slate-400
+    triggers:
+      - "page_view < 30s"
+      - "tab_switch"
+    actions:
+      - log_minimal: true
+  
+  # Level 2: Browse - Casual exploration
+  browse:
+    level: 2
+    name: "Browse"
+    duration_min: 30
+    duration_max: 300  # 5 minutes
+    description: "Casual exploration, interest sampling"
+    color: "#60a5fa"  # blue-400
+    triggers:
+      - "page_view >= 30s"
+      - "scroll_depth > 25%"
+    actions:
+      - log_basic: true
+      - track_topic: true
+  
+  # Level 3: Read - Active engagement
+  read:
+    level: 3
+    name: "Read"
+    duration_min: 300
+    duration_max: 1800  # 30 minutes
+    description: "Active reading, knowledge acquisition"
+    color: "#34d399"  # emerald-400
+    triggers:
+      - "page_view >= 5m"
+      - "scroll_depth > 50%"
+      - "highlight_text"
+    actions:
+      - log_detailed: true
+      - track_topic: true
+      - suggest_save: true
+  
+  # Level 4: Study - Deep learning
+  study:
+    level: 4
+    name: "Study"
+    duration_min: 1800
+    duration_max: 7200  # 2 hours
+    description: "Deep learning, focused study session"
+    color: "#a78bfa"  # violet-400
+    triggers:
+      - "session_duration >= 30m"
+      - "multi_source_research"
+      - "note_taking"
+    actions:
+      - log_comprehensive: true
+      - protect_focus: true
+      - block_distractions: true
+      - sync_to_memory: true
+  
+  # Level 5: Ruminate - Contemplative synthesis
+  ruminate:
+    level: 5
+    name: "Ruminate"
+    duration_min: 7200
+    description: "Contemplative synthesis, deep integration"
+    color: "#f472b6"  # pink-400
+    triggers:
+      - "session_duration >= 2h"
+      - "explicit_rumination_mode"
+    actions:
+      - log_comprehensive: true
+      - protect_focus: strict
+      - block_distractions: strict
+      - sync_to_memory: true
+      - trigger_rumination_protocol: true
+
+#-------------------------------------------------------------------------------
+# Self-Protocol Integration
+#-------------------------------------------------------------------------------
+self_protocol:
+  # Path to Self-Protocol repository
+  path: "/opt/kingdom/repos/Self-Protocol"
+  
+  # API configuration
+  api:
+    enabled: true
+    port: 3001
+    host: "127.0.0.1"
+  
+  # Memory integration
+  memory:
+    sync_enabled: true
+    sync_interval: 300  # seconds
+    experience_threshold: 3  # minimum focus level to log experience
+    knowledge_threshold: 4  # minimum focus level to log knowledge
+  
+  # Interest alignment
+  interests:
+    tracking_enabled: true
+    alignment_check_interval: 60  # seconds
+    drift_threshold: 0.5  # alignment score below which to suggest refocus
+    auto_categorize: true
+  
+  # Relationship mapping
+  relationships:
+    tracking_enabled: true
+    collaboration_sync: true
+  
+  # Rumination protocol
+  rumination:
+    enabled: true
+    auto_trigger: true
+    min_session_duration: 7200  # 2 hours
+    cooldown: 86400  # 24 hours between auto-triggers
+
+#-------------------------------------------------------------------------------
+# OpenClaw Integration
+#-------------------------------------------------------------------------------
+openclaw:
+  # Path to OpenClaw repository
+  path: "/opt/kingdom/repos/openclaw"
+  
+  # API configuration
+  api:
+    enabled: true
+    port: 3000
+    host: "127.0.0.1"
+  
+  # Focus tracking
+  tracking:
+    enabled: true
+    granularity: "detailed"  # minimal, basic, detailed, comprehensive
+    include_urls: true
+    include_titles: true
+    include_content_hash: false  # privacy consideration
+  
+  # Distraction blocking
+  blocking:
+    enabled: true
+    mode: "suggest"  # off, suggest, soft, hard
+    blocklist:
+      - "*.facebook.com"
+      - "*.twitter.com"
+      - "*.tiktok.com"
+      - "*.instagram.com"
+      - "news.ycombinator.com"
+      - "*.reddit.com"
+    allowlist:
+      - "github.com"
+      - "*.stackoverflow.com"
+      - "*.wikipedia.org"
+    schedule:
+      # Block during focus hours
+      - days: ["mon", "tue", "wed", "thu", "fri"]
+        start: "09:00"
+        end: "17:00"
+        mode: "soft"
+  
+  # Session management
+  sessions:
+    auto_start: true
+    idle_timeout: 300  # seconds
+    max_duration: 14400  # 4 hours
+    break_reminder: 3600  # 1 hour
+
+#-------------------------------------------------------------------------------
+# Guardian-Specific Configuration
+#-------------------------------------------------------------------------------
+guardian:
+  # Focus shield - protect deep work
+  focus_shield:
+    enabled: true
+    activation_level: 4  # activate at Study level
+    notification_blocking: true
+    tab_limit: 5  # max tabs during protected focus
+    new_tab_warning: true
+  
+  # Attention audit
+  attention_audit:
+    enabled: true
+    report_interval: 86400  # daily
+    metrics:
+      - focus_time_total
+      - focus_time_by_level
+      - distraction_count
+      - topic_distribution
+      - interest_alignment_score
+    export_format: "markdown"
+    export_path: "/opt/kingdom/reports"
+  
+  # Protocol enforcement
+  protocol_enforcement:
+    enabled: true
+    validate_interests: true
+    validate_memory: true
+    enforce_rumination_cooldown: true
+  
+  # Network coordination
+  network_coordination:
+    enabled: true
+    announce_interval: 300  # seconds
+    share_patterns: true  # share anonymized patterns
+    participate_consensus: true
+
+#-------------------------------------------------------------------------------
+# Storage Configuration
+#-------------------------------------------------------------------------------
+storage:
+  # Primary data store
+  primary:
+    type: "sqlite"
+    path: "/opt/kingdom/data/guardian.db"
+  
+  # Backup configuration
+  backup:
+    enabled: true
+    interval: 86400  # daily
+    retention: 30  # days
+    path: "/opt/kingdom/backups"
+  
+  # Export configuration
+  export:
+    enabled: true
+    formats: ["json", "markdown"]
+    path: "/opt/kingdom/exports"
+
+#-------------------------------------------------------------------------------
+# Logging Configuration
+#-------------------------------------------------------------------------------
+logging:
+  level: "info"  # debug, info, warn, error
+  format: "json"
+  outputs:
+    - type: "file"
+      path: "/var/log/kingdom/guardian.log"
+      rotation: "daily"
+      retention: 30
+    - type: "stdout"
+      format: "pretty"
+  
+  # Sensitive data handling
+  redact:
+    - urls
+    - titles
+    - content
+
+#-------------------------------------------------------------------------------
+# Security Configuration
+#-------------------------------------------------------------------------------
+security:
+  # API authentication
+  api_auth:
+    enabled: true
+    method: "bearer"  # bearer, api_key, none
+    token_expiry: 86400  # seconds
+  
+  # Encryption
+  encryption:
+    at_rest: true
+    algorithm: "aes-256-gcm"
+  
+  # Rate limiting
+  rate_limit:
+    enabled: true
+    requests_per_minute: 60
+    burst: 10
+
+#-------------------------------------------------------------------------------
+# Feature Flags
+#-------------------------------------------------------------------------------
+features:
+  # Core features
+  focus_tracking: true
+  distraction_blocking: true
+  attention_analytics: true
+  session_management: true
+  
+  # Self-Protocol features
+  memory_sync: true
+  interest_alignment: true
+  relationship_mapping: true
+  rumination_mode: true
+  
+  # Guardian features
+  focus_shield: true
+  attention_audit: true
+  protocol_enforcement: true
+  network_sync: true
+  
+  # Experimental features
+  experimental:
+    predictive_focus: false
+    ai_suggestions: false
+    cross_node_patterns: false
