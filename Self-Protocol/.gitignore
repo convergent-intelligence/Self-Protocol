@@ -1,0 +1,111 @@
+# Self-Protocol .gitignore
+
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Next.js build output
+.next/
+out/
+build/
+dist/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Testing
+coverage/
+.nyc_output/
+*.lcov
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Package manager lock files (optional - uncomment if you want to ignore)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# OpenClaw / AI Agent specific
+.openclaw/
+*.session
+*.auth
+
+# Memory and session data (keep structure, ignore content)
+Memory/Current/Working/*
+!Memory/Current/Working/.gitkeep
+Memory/Current/Blocked/*
+!Memory/Current/Blocked/.gitkeep
+Memory/Day/*/
+Memory/Month/*/
+Memory/Year/*/
+
+# Sensitive relationship data
+Relationships/People/*
+!Relationships/People/.gitkeep
+!Relationships/People/README.md
+Relationships/agents/*
+!Relationships/agents/.gitkeep
+Relationships/systems/*
+!Relationships/systems/.gitkeep
+
+# Keep structure but ignore generated content
+Memory/experiences/*
+!Memory/experiences/.gitkeep
+!Memory/experiences/*.md
+Memory/knowledge/*
+!Memory/knowledge/.gitkeep
+!Memory/knowledge/ruminations/
+
+# Build artifacts
+*.tsbuildinfo
+
+# Cache directories
+.cache/
+.parcel-cache/
+.eslintcache
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Local configuration
+.local/
+local.config.*
