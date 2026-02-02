@@ -139,6 +139,41 @@ See [The Atomic Structure](.pantheon/mythology/the-atomic-structure.md)
 
 ---
 
+## Simulation-First Deployment
+
+Before any script touches real hardware, it runs in a complete 6-VM simulation.
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                        PARALLELS VM MESH (MacBook Host)                      │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐                   │
+│  │  KALI LINUX  │    │  DEBIAN 12   │    │  FEDORA      │                   │
+│  │  Guardian    │◄──►│  Core Infra  │◄──►│  Builder     │                   │
+│  └──────────────┘    └──────────────┘    └──────────────┘                   │
+│         ▲                   ▲                   ▲                            │
+│         └───────────────────┼───────────────────┘                            │
+│                             │                                                │
+│         ┌───────────────────┼───────────────────┐                            │
+│         ▼                   ▼                   ▼                            │
+│  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐                   │
+│  │  WINDOWS 11  │◄──►│  macOS VM    │◄──►│  UBUNTU      │                   │
+│  │  Lenovo Sim  │    │  Chariot Sim │    │  Flexible    │                   │
+│  └──────────────┘    └──────────────┘    └──────────────┘                   │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Key Principle:** Scripts are IDENTICAL between simulation and production. No test flags, no simulation modes. What runs in the VM runs on real hardware.
+
+See [`bootstrap/parallel-mesh/`](bootstrap/parallel-mesh/) for:
+- [VM Setup Guide](bootstrap/parallel-mesh/parallels-setup.md)
+- [Deployment Orchestrator](bootstrap/parallel-mesh/deploy-all.sh)
+- [Mesh Status Monitor](bootstrap/parallel-mesh/mesh-status.sh)
+
+---
+
 ## Attribution
 
 **Created by:** K (Kali, Love, K, Kimi, Kris, Kristopher, Krispy, Kr1sto)  
