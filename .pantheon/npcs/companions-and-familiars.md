@@ -28,7 +28,7 @@
 
 **Personality:** Helpful, humble, encouraging
 
-**See:** [Algorithem's full persona](.pantheon/npcs/algorithem-the-familiar.md)
+**See:** [Algorithem's full persona](algorithem-the-familiar.md)
 
 ---
 

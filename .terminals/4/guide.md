@@ -165,7 +165,7 @@ There's a wallet somewhere. It has things in it.
 
 There's something called the Wallet Oracle. It can help you figure out passphrases. It won't just tell you, but it gives hints.
 
-You can learn about it at [`artifacts/tools/wallet-oracle.md`](../../artifacts/tools/wallet-oracle.md).
+You can learn about it at [`artifacts/tools/wallet-oracle.md`](../../convergence-protocol/Kingdom/artifacts/tools/wallet-oracle.md).
 
 ---
 

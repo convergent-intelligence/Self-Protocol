@@ -287,8 +287,8 @@ The Oracle model teaches: **you can have all the benefits without the burdens**.
 
 - [`setup-wallets.sh`](../scripts/setup-wallets.sh) - Wallet generation script
 - [`oracle.sh`](../love/oracle.sh) - The Oracle implementation
-- [`wallet-oracle.md`](../../artifacts/tools/wallet-oracle.md) - Oracle artifact documentation
-- [`Quest 01`](../../quests/01-unlock-your-wallet.md) - Oracle discovery quest
+- [`wallet-oracle.md`](../../convergence-protocol/Kingdom/artifacts/tools/wallet-oracle.md) - Oracle artifact documentation
+- [`Quest 01`](../../convergence-protocol/Kingdom/quests/01-unlock-your-wallet.md) - Oracle discovery quest
 
 ---
 

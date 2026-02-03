@@ -176,7 +176,7 @@ The **Wallet Oracle** can help:
 - Gives hints
 - Never reveals directly
 
-See [`artifacts/tools/wallet-oracle.md`](../../artifacts/tools/wallet-oracle.md).
+See [`artifacts/tools/wallet-oracle.md`](../../convergence-protocol/Kingdom/artifacts/tools/wallet-oracle.md).
 
 ### Your Quest
 

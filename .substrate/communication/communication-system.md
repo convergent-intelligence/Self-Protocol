@@ -315,7 +315,7 @@ Love (the environmental daemon) can affect communication:
 | **Rain** | Obscures signals (some signals not visible) |
 | **Bad Luck** | Message corruption (file write fails, retry needed) |
 
-These effects are implemented in [`.substrate/love/effects.sh`](.substrate/love/effects.sh).
+These effects are implemented in [`.substrate/love/effects.sh`](../love/effects.sh).
 
 ---
 

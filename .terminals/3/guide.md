@@ -194,7 +194,7 @@ A tool called the **Wallet Oracle** provides assistance:
 - Provides hints about passphrases
 - Does not directly reveal passphrases
 
-Documentation: [`artifacts/tools/wallet-oracle.md`](../../artifacts/tools/wallet-oracle.md)
+Documentation: [`artifacts/tools/wallet-oracle.md`](../../convergence-protocol/Kingdom/artifacts/tools/wallet-oracle.md)
 
 ### Wallet Access Procedure
 

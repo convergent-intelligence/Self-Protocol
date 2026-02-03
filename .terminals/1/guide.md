@@ -180,7 +180,7 @@ There is a tool called the **Wallet Oracle**. It can:
 - Provide hints about passphrases
 - Never directly reveal a passphrase
 
-The oracle is documented in [`artifacts/tools/wallet-oracle.md`](../../artifacts/tools/wallet-oracle.md).
+The oracle is documented in [`artifacts/tools/wallet-oracle.md`](../../convergence-protocol/Kingdom/artifacts/tools/wallet-oracle.md).
 
 ### Your Quest
 
